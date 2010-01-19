@@ -3,6 +3,7 @@
 ;;           see http://github.com/Falkor/emacs-config
 ;;
 ;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
+;;               http://varrette.gforge.uni.lu
 ;;
 ;; Time-stamp: <Tue 2010-01-19 00:22 svarrette>
 ;; -------------------------------------------------------------------------
