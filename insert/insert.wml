@@ -1,0 +1,26 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; File: %f - %@           
+;;;
+;;; Copyright (c) %y %U %a
+;;;
+;;; Creation:  %D %m %y
+;;; Time-stamp: < >
+;;; $Id$
+;;; 
+;;; For more info: 
+;;;    - WML (Website Meta Language): http://thewml.org/docs/
+;;;    - XHTML reference: http://webpageworkshop.co.uk/main/xhtml_reference
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#use wml::include::main
+#use wml::std::info
+
+<htitle "Homepage">
+<page-header "$(DEFAULT_TITLE)">
+
+
+<div class="info">
+  <en>Coming soon</en>
+  <fr>En construction</fr>
+</div>
+<!-- Your text-->

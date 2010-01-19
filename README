@@ -1,1 +1,128 @@
-Initial commit to initiate the repository of my emacs configuration
+-*- mode: text; mode: auto-fill; fill-column: 80 -*-
+================================================================================
+ File : README 
+ Creation:  12 Jan 2010
+ Time-stamp: <Mon 2010-01-18 10:04 svarrette>
+
+ Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
+               http://varrette.gforge.uni.lu
+================================================================================
+
+I am an Emacs man. Some may say Emacs is a kind of religion, for me I started to
+be addicted in 2000 when I arrived at the ENSIMAG and a friend of mine initiated
+me. 
+
+That's very often how it works with Emacs: someone introduce it to you, give you
+its personal configuration file (i.e. its .emacs) and then you start enjoy it,
+eventually add your own customization and spread again the word (and your
+configuration file ;) )
+
+In all cases, Emacs remains for me the most productive environment for
+developing software in almost any language and for producing LaTeX documents.    
+
+Recently, I decided to fully restructure my config to make it more rigourous and 
+understandable. Here is the result. 
+
+---------------
+ Prerequisite 
+---------------
+
+You'll need to install emacs and a few packages. 
+
+Debian/Ubuntu: apt-get install emacs auctex emacs-goodies-el
+
+Mac OS X: I use the Carbon emacs package available at
+              http://homepage.mac.com/zenitani/emacs-e.html 
+
+          You should also install the Enhanced Carbon EMacs (ECE) plugin
+              http://www.inf.unibz.it/~franconi/mac-emacs/
+
+
+---------
+ Install
+---------
+
+You should move the current parent direction into your homedir (~/), rename it
+to .emacs.d/ and create the symlink to the .emacs file: 
+
+   cd
+   ln -s .emacs.d/.emacs .emacs
+
+
+
+Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
+
+    - CEDET (the packaged version is too old) 
+      * Get the latest version from http://sourceforge.net/projects/cedet/files/
+      * Let's assume it's cedet-1.0pre6.tar.gz (the one I checked)
+      * uncompress in the correct directory: 
+            cd ~/.emacs.d/site-lisp
+            tar xvzf /path/to/cedet-1.0pre6.tar.gz
+            ln -s cedet-1.0pre6 cedet
+            
+      * it you're running Ubuntu 9.10, you'll need to apply the patch provided
+        on http://bugs.gentoo.org/280984 and available on 
+        http://sources.gentoo.org/viewcvs.py/gentoo-x86/app-emacs/cedet/files/cedet-1.0_pre6-fix-eieio-comp.patch?view=markup
+            patch -p0 < pathfile
+
+      * compile cedet
+            cd cedet
+            make
+      
+   - ECB: (the packaged version is also too  old) 
+     * Get the latest version from  http://ecb.sourceforge.net/
+     * Assuming you retrieved ecb-x.yy.tar.gz (tested 2.40) 
+	cd ~/.emacs.d/site-lisp
+	tar xvzf /path/to/ecb-x.yy.tar.gz 
+	ln -s ecb-x.yy ecb
+	
+   - (eventually) ELPA (see http://tromey.com/elpa/install.html)
+
+
+----------------------------
+ Configuration organization
+----------------------------
+
+~/.emacs.d/init.el          A symlink to .emacs i.e. the main configuration
+                            files 
+~/.emacs.d/init-defuns.el   Elisp functions definitions 
+~/.emacs.d/init-display.el  Configure the display (color theme etc.)
+~/.emacs.d/init-emodes.el   Configure the emacs modes
+~/.emacs.d/init-cedet.el    Configure the CEDET environment
+~/.emacs.d/elpa/            Directory containing the packages installed via ELPA  
+~/.emacs.d/insert/          Directory that contains the templates for
+                            auto-insertion
+~/.emacs.d/site-lisp/       Directory containing the external elisp files used 
+~/.emacs.d/themes/          Directory containing the additional color theme  
+
+For more information, read the configurations files as I try to put relevant
+information in comments.
+
+---------------
+ Bugs/Comments
+---------------
+
+Send me by mail (Sebastien.Varrette@uni.lu) any remark or comments. 
+
+-----------
+ Resources
+-----------
+
+If you want more, take a look at the following web site:
+
+    * Emacs reference page: http://www.gnu.org/software/emacs/
+    * Emacs wiki : http://www.emacswiki.org/emacs/
+    * http://emacsblog.org/
+    * http://www.io.com/~jimm/emacs_tips.html
+    * The Emacs Starter Kit by Phil Hagelberg 
+           http://github.com/technomancy/emacs-starter-kit/tree/master
+    * Carbon Emacs package (Mac OS X port)
+           http://homepage.mac.com/zenitani/emacs-e.html
+    * Various .emacs example on the web, including
+           http://www.mygooglest.com/fni/dot-emacs.html
+           http://www.dotemacs.de/dotfiles/JohnJGlynn.emacs.html
+           http://www-verimag.imag.fr/~moy/emacs/.emacs
+    * Emacs Lisp List (ELL) - authorative source of all Emacs packages
+           http://www.emacswiki.org/emacs/EmacsLispList
+
+================================================================================

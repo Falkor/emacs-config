@@ -1,0 +1,115 @@
+-*- mode: text; mode: auto-fill; fill-column: 80 -*-
+================================================================================
+ File : %f 
+ Creation:  %D %m %y
+ Time-stamp: < >
+
+ Copyright (c) %y %U %a
+               %o
+ $Id$
+================================================================================
+%@
+---------------
+ Prerequisite 
+---------------
+
+Compilation of the files contained in this directory requires the
+following binaries : 
+- latex and pdflatex 	 (for compilation)
+- bibtex 	         (for bibliography/references)
+- dvips         	 (conversion dvi <-> ps)
+- gzip 		         (compression)
+- dvipdf        	 (conversion dvi <-> pdf) 
+- [optionnal] latex2html (html generation from LaTeX)
+Please check that these commands are available on your system. 
+
+This LaTeX document can be compiled using the GNU Make utility.
+Documentation on the Make utility may be found at 
+              http://www.gnu.org/software/make/manual/make.html  
+---------
+ Install
+---------
+
+Just type 'make' in a terminal. 
+Generated files (PDF and optionaly a compressed Postscript) will be placed in
+the Output/ directory. Other intermediate files will be place in .Trash/
+directory.
+
+You have the possiblity to generate HTML files from the LaTeX sources To do so,
+simply run 'make html', generated files will be located in Output/HTML/.  Please
+note that this directory is only created when summoning 'make html' and it will
+be deleted on 'make clean'
+
+-----------
+ Uninstall
+-----------
+Just run 'make clean'
+
+------------------
+ Compilation mode
+------------------
+
+Two compilation modes can be configured using the USE_PDFLATEX variable of the
+Makefile:
+    1/ Rely on pdflatex to generate directly a pdfs from the LaTeX sources. 
+       The compilation follow then the scheme: 
+                file.tex --[pdflatex/bibtex]--> file.pdf + file.[aux|log etc.]
+
+       Note that in that case, your figures should be in pdf format instead of eps.
+       To use this mode, just set the USE_PDFLATEX variable to 'yes'
+ 
+    2/ Respect the classical scheme:                             +-[dvips]-> file.ps
+                                                                 |             |             
+                                                                 |        +-[gzip]
+       file.tex -[latex/bibtex]-> file.dvi + file.[aux|log etc.]-+        |     
+                                                                 |        +-> file.ps.gz     
+                                                                 +-[dvipdf]-> file.pdf
+       To use this mode, just set the USE_PDFLATEX variable to 'no'
+ In all cases: 
+   - all the intermediate files (file.aux, file.log etc.) will be moved
+     to .Trash (if it exists). 
+   - the dvi file (generated if pdflatex is not used) will stay in the current
+     directory.
+   - other target files (pdfs + compressed Postscript files if pdflatex is not
+     used) are moved to the Output/ directory.
+     Note that this directory is automatically created.
+
+--------------------
+ Detailled Commands 
+--------------------
+
+ make : Compile LaTeX files, generated files (pdf etc.) are placed in Output/
+ make force : Force re-compilation, even if not needed
+ make clean : Remove all generated files make html : generate HTML files from
+              tex in Output/HTML/ (using latex2html)
+              The directory is created on the first invocation
+ make help : print help message
+
+-------------------------------------------------------------
+ Using a Versioning System such as CVS/Subversion/GIT 
+-------------------------------------------------------------
+
+Very often, several authors contributes to documents written in LaTeX (this is
+the case typically with scientific publications).
+In that case, the use of a versionning system is a good idea.  
+There exists several such systems, here are links to web site that explain the
+basic commands of each of them.
+
+ -  CVS: 
+      http://ximbiot.com/cvs/cvshome/docs/blandy.html
+      http://www.idealx.org/doc/cvs.fr.html 
+      http://freealter.org/doc_distrib/cvs-1.11/introduction/cvs-4.html
+
+ - Subversion: 
+      http://svnbook.red-bean.com/
+      http://helpdesk.gforge.uni.lu/svn.html
+
+ - GIT
+      http://hoth.entp.com/output/git_for_designers.html
+      http://git-scm.com/course/svn.html
+      http://www.spheredev.org/wiki/Git_for_the_lazy
+      http://linux.yyz.us/git-howto.html
+      http://www.kernel.org/pub/software/scm/git/docs/everyday.html
+
+
+================================================================================

@@ -1,0 +1,94 @@
+%%=============================================================================
+%% File:  %f --  LaTeX style configuration for the document 
+%% Author(s): %U %a
+%% Creation:  %D %m %y
+%% Time-stamp: < >
+%%
+%% Copyright (c) %y %U %a
+%%               %o
+%% $Id$
+%%=============================================================================
+
+\usepackage[english]{babel}
+\usepackage{ae,a4,url}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath, amsthm}
+\usepackage{amsfonts,amssymb}
+\usepackage{float}
+\usepackage{floatflt}         %% floating figures
+\usepackage{multirow}
+\usepackage{rotating}
+%%\usepackage[colorlinks=true]{hyperref}
+\usepackage{xspace}
+\usepackage{acronym}          %% for acronyms
+\usepackage{listings}
+
+\usepackage[usenames]{color} %% see http://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage{colortbl}
+
+\definecolor{lightgray}{gray}{0.95}
+
+\graphicspath{{Images/}} %% Add this directory to the searched paths for graphics
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Versionning with day and time
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% months
+\def\ftoday{\number\day\space
+ \ifcase\month\or
+ january\or february\or march\or april\or may\or june\or
+ july\or august\or september\or october\or november\or december\fi
+ \space\number\year}
+%% \isodayandtime to get current date and time
+\begingroup
+\count0=\time \divide\count0by60 %% Hour
+\count2=\count0 \multiply\count2by-60 \advance\count2by\time%% Min
+\def\2#1{\ifnum#1<10 0\fi\the#1}
+\xdef\isodayandtime{\the\year-\2\month-\2\day\space\2{\count0}:%%sec
+\2{\count2}}
+\endgroup
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Code Listings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[usenames]{color}
+\usepackage{xspace}
+\usepackage{listings}
+\definecolor{bcode}{rgb}{0.9,0.9,0.9} %% font color for the listings
+%% default style
+\lstset{numbers=left,numberstyle=\tiny,stepnumber=3,firstnumber=1,language=C++,basicstyle=\small,columns=flexible,backgroundcolor=\color{bcode},showstringspaces=false,emph={uint8_t,uint16_t,uint32_t,size_t,sig_atomic_t,time_t,clock_t,sigset_t,restrict},emphstyle=\bfseries,escapeinside={/*@}{@*/}}
+%% specific styles
+\lstdefinestyle{filecontent}
+{language=sh,emph={remoteSite,mySite,remoteserver,password_remoteSite,remoteSiteID},emphstyle=\itshape,numbers=none,commentstyle={},columns=flexible}
+\lstdefinestyle{command}
+{language=sh,emph={user@host,root@host},emphstyle=\textbf,numbers=none,commentstyle={},columns=flexible}
+
+\newcommand{\mybox}  [1]{\colorbox{bcode}{\makebox[\linewidth][l]{#1}}}
+\newcommand{\prompt} [5]{{\small \mybox{\texttt{[#1@#2]}#3\texttt{#4 #5}}}}
+\newcommand{\cmd}    [1]{{\small \mybox{~~\texttt{#1}}}}
+\newcommand{\cmdres} [1]{{\small \mybox{~~#1}}}
+
+%% ================= Bibliography style =================
+\bibliographystyle{plain}
+
+%% ================= Acronyms shortcuts =================
+\newcommand{\CC}      {\ac{CC}\xspace}
+\newcommand{\CSC}     {\ac{CSC}\xspace}
+\newcommand{\UL}      {\ac{UL}\xspace}
+
+%% =================== vspace tricks ====================
+\newcommand{\vsitem}{\vspace{0em}}
+\newcommand{\vsfig} {\vspace{-1em}}
+\newcommand{\vssec} {\vspace{0em}}
+
+
+
+%%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%% eof
+%%
+%% Local Variables:
+%% mode: latex
+%% mode: flyspell
+%% End:

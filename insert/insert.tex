@@ -1,0 +1,96 @@
+%%=============================================================================
+%% File:  %f --  %@           
+%% Author(s): %U %a
+%% Creation:  %D %m %y
+%% Time-stamp: < >
+%%
+%% Copyright (c) %y %U %a
+%%               %o
+%% $Id$
+%%
+%% More information on LaTeX: http://www.latex-project.org/
+%% LaTeX symbol list: 
+%%   http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
+%%=============================================================================
+\documentclass[11pt,twoside,a4paper]{article}
+\usepackage{_style}
+
+%%=================================== TITLE ===================================
+\newlength{\larg}
+\title{
+{\rule{\larg}{1mm}}
+\vspace{7mm}
+\begin{tabular}{p{2.5cm}r}\\
+   &{\huge \sc{Titre}}\\
+   \\
+   & {\huge Sous-titre }\\
+\end{tabular}
+{\rule{\larg}{1mm}}
+}
+
+\author{%U\\ {\small \url{%a}}}
+
+\date{
+  Version 0.1 - $Rev$%%\thanks{Draft version. Compiled time: \isodayandtime}
+}
+%%=============================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+%%\clearpage
+%%\tableofcontents
+%%\clearpage
+
+%%===================================
+\section{Introduction}
+\label{sec:intro}
+%%\input{_intro}
+
+%%===================================
+\section{Context \& Motivations}
+\label{sec:context}
+%%\input{_context}
+
+%%===================================
+\section{Conclusion}
+\label{sec:conclusion}
+%%\input{_conclusion}
+
+
+%%================================ Appendix ==================================
+%%\clearpage
+%%\appendix
+
+%%============================
+%%\subsection{Acronyms used}
+
+%%\begin{acronym}\setlength\itemsep{-0.3em}
+%%    \acro{CC}{Cloud Computing}
+%%    \acro{CSC}{Computer Science and Communications}
+%%    \acro{UL}{University of Luxembourg}
+%%\end{acronym}
+
+%%============================== Bibliography =================================
+%%\clearpage
+%%\addcontentsline{toc}{section}{References} 
+%%{\small 
+%%\bibliography{biblio.bib}
+%%}
+
+\end{document}
+
+%%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%% eof
+%%
+%% Local Variables:
+%% mode: latex
+%% mode: flyspell
+%% mode: auto-fill
+%% fill-column: 80
+%% End:

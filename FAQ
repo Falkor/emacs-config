@@ -1,0 +1,60 @@
+-*- mode: text; mode: auto-fill; fill-column: 80 -*-
+===================================================================
+ File : FAQ.txt 
+ Creation:  13 Jan 2010
+ Time-stamp: <Thu 2010-01-14 13:35 svarrette>
+
+ Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
+               http://varrette.gforge.uni.lu
+===================================================================
+
+
+Q: I just retrieved your configuration and follow the instruction to setup the
+   .emacs.d directory and the .emacs file yet when I launch emacs, I get the
+   message "An error has occurred while loading `/path/to/.emacs':  
+
+   File error: Cannot open load file, XXX" 
+
+A: 
+This means that XXX is not installed on your system. 
+
+* On Debian/Ubuntu: apt-cache search XXX then install the appropriate package
+  via apt-get install 
+* On Mac Os X, with Carbon Emacs: either use Help / Carbon Emacs Package /
+  Net-install / or make a manual installation (put the files in
+  ~/.emacs.d/site-lisp/)  
+
+Special note for CEDET and ECB: the packaged version are a little old (CEDET
+v1.0pre4 and ECB 2.32 as I speak) so it appeared better to install the latest
+one (CEDET 1.0pre6 that directly include eassist and ECB 2.40). 
+    - CEDET: 
+      * Get the latest version from http://sourceforge.net/projects/cedet/files/
+      * Let's assume it's cedet-1.0pre6.tar.gz (the one I checked)
+      * uncompress in the correct directory: 
+            cd ~/.emacs.d/site-lisp
+            tar xvzf /path/to/cedet-1.0pre6.tar.gz
+            ln -s cedet-1.0pre6 cedet
+            
+      * it you're running Ubuntu 9.10, you'll need to apply the patch provided
+        on http://bugs.gentoo.org/280984 and available on 
+        http://sources.gentoo.org/viewcvs.py/gentoo-x86/app-emacs/cedet/files/cedet-1.0_pre6-fix-eieio-comp.patch?view=markup
+            patch -p0 < pathfile
+
+      * compile cedet
+            cd cedet
+            make
+      
+      that's all!  (note that the path to ~/.emacs.d/site-lisp/cedet/common is
+      already loaded in init.el)
+
+   - ECB: you have no choice but to manually install ECB from http://ecb.sourceforge.net/
+	  Assuming you retrieved ecb-x.yy.tar.gz:
+
+	cd ~/.emacs.d/site-lisp
+	tar xvzf /path/to/ecb-x.yy.tar.gz 
+	ln -s ecb-x.yy ecb
+	
+
+
+
+===================================================================
