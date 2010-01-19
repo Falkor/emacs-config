@@ -2,7 +2,7 @@
 ================================================================================
  File : README 
  Creation:  12 Jan 2010
- Time-stamp: <Mon 2010-01-18 10:04 svarrette>
+ Time-stamp: <Tue 2010-01-19 20:48 svarrette>
 
  Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
                http://varrette.gforge.uni.lu
@@ -12,7 +12,7 @@ I am an Emacs man. Some may say Emacs is a kind of religion, for me I started to
 be addicted in 2000 when I arrived at the ENSIMAG and a friend of mine initiated
 me. 
 
-That's very often how it works with Emacs: someone introduce it to you, give you
+That's very often how it works with Emacs: someone introduces it to you, give you
 its personal configuration file (i.e. its .emacs) and then you start enjoy it,
 eventually add your own customization and spread again the word (and your
 configuration file ;) )
@@ -21,7 +21,9 @@ In all cases, Emacs remains for me the most productive environment for
 developing software in almost any language and for producing LaTeX documents.    
 
 Recently, I decided to fully restructure my config to make it more rigourous and 
-understandable. Here is the result. 
+understandable. Here is the result. The latest version is available at the
+following address: 
+          http://github.com/Falkor/emacs-config
 
 ---------------
  Prerequisite 
@@ -37,18 +39,27 @@ Mac OS X: I use the Carbon emacs package available at
           You should also install the Enhanced Carbon EMacs (ECE) plugin
               http://www.inf.unibz.it/~franconi/mac-emacs/
 
-
 ---------
  Install
 ---------
 
-You should move the current parent direction into your homedir (~/), rename it
-to .emacs.d/ and create the symlink to the .emacs file: 
+Download the latest version of my config from
+         http://github.com/Falkor/emacs-config 
 
-   cd
-   ln -s .emacs.d/.emacs .emacs
+You can: 
+ * either click on the 'Download Source' button to get a tar archive named
+   Falkor-emacs-config-xxxxxxx.tar.gz then run: 
+           cd
+           tar xvzf /path/to/Falkor-emacs-config-xxxxxxx.tar.gz
+           mv emacs-config  ~/.emacs.d
 
+ * retrieve the latest version using git (apt-get install git-core) and running: 
+           git clone git://github.com/Falkor/emacs-config.git
+           mv emacs-config ~/.emacs.d
 
+Once this is done, create the symlink to the .emacs file: 
+           cd
+           ln -s .emacs.d/.emacs .emacs
 
 Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
 
@@ -76,8 +87,15 @@ Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
 	tar xvzf /path/to/ecb-x.yy.tar.gz 
 	ln -s ecb-x.yy ecb
 	
-   - (eventually) ELPA (see http://tromey.com/elpa/install.html)
+   - the current version comes with ELPA (see http://tromey.com/elpa/) such that
+     at the first launch, some required packages will be automatically
+     downloaded and installed.
 
+Now you can run emacs and ensure everything is normal. If not, as suggested, run
+it again with the '--debug-init' option and check eventually the FAQ. 
+
+Note: you can find a nice (and complete) tutorial on emacs basic usage on
+      http://www2.lib.uchicago.edu/keith/tcl-course/emacs-tutorial.html 
 
 ----------------------------
  Configuration organization
