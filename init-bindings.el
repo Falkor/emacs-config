@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Tue 2010-01-19 00:52 svarrette>
+;; Time-stamp: <Ven 2010-01-22 14:44 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -119,6 +119,8 @@
 (global-set-key (kbd "\C-r")  'isearch-backward)
 (global-set-key (kbd "C-M-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-M-r") 'isearch-backward-regexp)
+(global-set-key (kbd "M-q")   'query-replace)
+
 
 ;; === Instant messaging ===
 ;; see http://www.emacswiki.org/emacs/CategoryChatClient
