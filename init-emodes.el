@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Tue 2010-01-19 00:40 svarrette>
+;; Time-stamp: <Thu 2010-01-21 14:56 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -141,19 +141,18 @@
 (require 'tex-site)
 
 ;; AUC TeX will will assume the file is a master file itself
-(setq-default TeX-master t)
+;;(setq-default TeX-master t)
 
-(setq TeX-auto-save t)
+;; (setq TeX-auto-save t)
 
-(setq TeX-parse-self t) ; enable parse on load (if no style hook is found for the file)
+;;(setq TeX-parse-self t) ; enable parse on load (if no style hook is found for the file)
 
 (setq TeX-directory ".")
 (setq TeX-mode-hook '((lambda () (setq abbrev-mode t))))
 
 (setq-default TeX-PDF-mode t)         ; use PDF mode by default (instead of DVI)
 
-(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;;(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
