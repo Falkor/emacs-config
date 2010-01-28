@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Thu 2010-01-21 14:56 svarrette>
+;; Time-stamp: <Thu 2010-01-28 11:09 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -162,7 +162,7 @@
 
 ;; number of spaces to add to the indentation for `\item''s in list
 ;; environments
-(setq LaTeX-item-indent -2)              ; -4
+(setq LaTeX-item-indent -2)             ; -4
 
 ;; number of spaces to add to the indentation for each `{' not matched
 ;; by a `}'
@@ -223,6 +223,11 @@
 ;; === SVN support ===
 (require 'vc-svn)
 (add-to-list 'vc-handled-backends 'SVN)
+
+;; === GIT support ===
+;; based on magit (installed by elpa -- see ~/.emacs.d/init-elpa)
+;; documentation: http://zagadka.vm.bytemark.co.uk/magit/magit.html
+
 
 ;; =========================================================================
 ;; =========================== PROGRAMMING STUFF ===========================
@@ -286,16 +291,6 @@
 (require 'tempo-c-cpp)
 
 ;; === Code completion ===
-;; complement or indent on TAB=C-i
-;; I now use smart-tab (see below)
-;; see ~/.emacs.d/init-defuns.el
-;; (add-hook 'c++-mode-hook
-;;           (lambda ()
-;;             (local-set-key "\C-i" 'th-complete-or-indent)))
-;; (add-hook 'c-mode-hook
-;;           (lambda ()
-;;             (local-set-key "\C-i" 'th-complete-or-indent)))
-
 ;; see http://www.emacswiki.org/emacs/TabCompletion
 (require 'smart-tab)
 (global-smart-tab-mode t)
@@ -309,9 +304,12 @@
 (require 'init-cedet)
 
 
-
-
-
+;; === Ruby ===
+;; see http://sl33p3r.free.fr/blog/ruby/RubyAndEmacs.html
+(require 'ruby-electric)
+(defun my-ruby-mode-hook ()
+  (ruby-electric-mode))
+(add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
 (provide 'init-emodes)
 ;; ----------------------------------------------------------------------

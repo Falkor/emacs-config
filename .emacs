@@ -5,7 +5,7 @@
 ;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
-;; Time-stamp: <Tue 2010-01-19 00:22 svarrette>
+;; Time-stamp: <Thu 2010-01-28 10:02 svarrette>
 ;; -------------------------------------------------------------------------
 ;;
 ;;    ___ _ __ ___   __ _  ___ ___
@@ -336,6 +336,7 @@
         ("\\.gnuplot"   . "Gnuplot")          ; Gnuplot
         ("\\.pl$"       . "Perl")             ; Perl
         ("\\.pm$"       . "Perl Module")      ; PerlModule
+        ("\\.rb$"       . "Ruby")             ; Ruby
         (""             . "Shell") ; Shell (by default: assume a shell template)
         ))
 ;; now associate a template name to a template file
@@ -363,6 +364,7 @@
         ("Gnuplot"     . "insert.gnuplot")
         ("Perl"        . "insert.pl")
         ("Perl Module" . "insert.pm")
+        ("Ruby"        . "insert.rb")
         ))
 
 ;; ================================================================

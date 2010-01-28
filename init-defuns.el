@@ -248,6 +248,15 @@ insert `%'."
         (t                                                                    
          (message "Compilation exited abnormally: %s" string))))
 
+;; useful for ruby-mode 
+;; see http://groups.google.com/group/emacs-on-rails/browse_thread/thread/ae87fc797822bf3
+(defun ruby-insert-end () 
+  "Insert \"end\" at point and reindent current line." 
+  (interactive) 
+  (insert "end") 
+  (ruby-indent-line t) 
+  (end-of-line)) 
+
 
 (provide 'init-defuns)
 ;; ----------------------------------------------------------------------
