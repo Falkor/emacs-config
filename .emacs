@@ -5,7 +5,7 @@
 ;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
-;; Time-stamp: <Thu 2010-01-28 10:02 svarrette>
+;; Time-stamp: <Thu 2010-01-28 14:35 svarrette>
 ;; -------------------------------------------------------------------------
 ;;
 ;;    ___ _ __ ___   __ _  ___ ___
@@ -101,13 +101,14 @@
 
 
 ;; === Load path etc. ===
-(setq load-path (cons "~/.emacs.d/" load-path))          ; my own config files
-(setq load-path (cons "~/.emacs.d/themes" load-path))    ; emacs display themes
+(setq load-path (cons "~/.emacs.d/"          load-path)) ; my own config files
+(setq load-path (cons "~/.emacs.d/themes"    load-path)) ; emacs display themes
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path)) ; external elisp files
-(setq load-path (cons "~/.emacs.d/elpa" load-path)) ; packages installed via ELPA
-;;(CarbonEmacs
+(setq load-path (cons "~/.emacs.d/elpa"      load-path)) ; packages installed via ELPA
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet/common")) ;;)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet/common")) 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/yasnippet")) 
+
 (CarbonEmacs
  (setenv "PATH" (concat "/sw/bin:/opt/local/bin:usr/local/bin:" (getenv "PATH"))))
 

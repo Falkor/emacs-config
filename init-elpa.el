@@ -4,7 +4,7 @@
 ;;                      Install a base set of packages automatically.         
 ;;
 ;; Creation:  18 Jan 2010
-;; Time-stamp: <Tue 2010-01-19 00:07 svarrette>
+;; Time-stamp: <Thu 2010-01-28 14:29 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -32,9 +32,10 @@
 
 
 ;; Adapt to suit you needs
+;; see http://tromey.com/elpa/news.html for available packages
 (defvar starter-kit-packages (list 'idle-highlight
-                                   'ruby-mode
                                    'smart-tab
+                                   'ruby-mode
                                    'ruby-compilation
                                    'inf-ruby
                                    'magit)

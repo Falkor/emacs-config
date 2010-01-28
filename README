@@ -2,7 +2,7 @@
 ================================================================================
  File : README 
  Creation:  12 Jan 2010
- Time-stamp: <Tue 2010-01-19 20:48 svarrette>
+ Time-stamp: <Thu 2010-01-28 15:18 svarrette>
 
  Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
                http://varrette.gforge.uni.lu
@@ -115,6 +115,18 @@ Note: you can find a nice (and complete) tutorial on emacs basic usage on
 
 For more information, read the configurations files as I try to put relevant
 information in comments.
+
+----------------------------
+ Customization
+----------------------------
+Once emacs launch correctly on your system, you'll probably want to customize the
+configurationas follow:
+
+ - Edit ~/.emacs.d/init.el and adapt the variables: 
+       user-full-name
+       user-mail-address
+       auto-insert-organisation
+ - Edit ~/.emacs.d/init-emodes.el and adapt the absolute homedir for ri-ruby-script
 
 ---------------
  Bugs/Comments

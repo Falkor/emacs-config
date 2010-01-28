@@ -1,2 +1,7 @@
-Courtesy of AndyStewart YasnippetTemplate
-See http://www.emacswiki.org/emacs-en/AndyStewart_YasnippetTemplate
+Most of teh configuration courtesy of AndyStewart YasnippetTemplate
+	see http://www.emacswiki.org/emacs-en/AndyStewart_YasnippetTemplate
+Except for ruby-mode: 
+	from http://github.com/bmaland/yasnippet-ruby-mode
+	
+
+

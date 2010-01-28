@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Thu 2010-01-28 11:09 svarrette>
+;; Time-stamp: <Thu 2010-01-28 15:19 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -272,16 +272,13 @@
 ;; === Source file navigation ===
 ;; load the corresponding file C/C++ header or source file for the current
 ;; buffer.
+;; I now prefer to use eassist (see ~/.emacs.d/init-cedet)
 
-;; I now prefer to use eassist (see below)
 ;; (load-library "sourcepair")
-
 ;; (global-set-key "\C-xz" 'sourcepair-load)
 ;; (setq sourcepair-source-path    '( "." "../*" ))
 ;; (setq sourcepair-header-path    '( "." "Include" "../Include" "include" "../include" "../*"))
 ;; (setq sourcepair-recurse-ignore '( "CVS" "Obj" "Debug" "Release" ".svn" ".git"))
-
-
 
 ;; === Code template ===
 ;; see http://www.emacswiki.org/emacs/TempoMode
@@ -289,6 +286,37 @@
 ;; see ~/.emacs.d/tempo-c-cpp
 ;; binding to 'C-t C-t' or 'f5' by default
 (require 'tempo-c-cpp)
+
+;; Templates using Yasnippet: Yet Another Snippet extension for Emacs.
+;; see http://www.emacswiki.org/emacs/Yasnippet and http://yasnippet.googlecode.com
+;; Installation notes: see README
+(require 'yasnippet)
+(yas/initialize)
+(setq yas/root-directory "~/.emacs.d/yasnippet") ; my personnal settings
+(yas/load-directory yas/root-directory)          ; Load the snippets
+
+;; key bindings
+(defun my-yas-trigger-key-hook ()
+   (local-set-key (read-kbd-macro "M-<return>") 'yas/expand)
+)
+;; application to the supported modes  
+(add-hook 'c-mode-common-hook   'my-yas-trigger-key-hook)
+(add-hook 'python-mode-hook     'my-yas-trigger-key-hook)
+(add-hook 'ruby-mode-hook       'my-yas-trigger-key-hook)
+(add-hook 'perl-mode-hook       'my-yas-trigger-key-hook)
+(add-hook 'lisp-mode-hook       'my-yas-trigger-key-hook)
+(add-hook 'emacs-lisp-mode-hook 'my-yas-trigger-key-hook)
+(add-hook 'latex-mode-hook      'my-yas-trigger-key-hook)
+(add-hook 'sql-mode-hook        'my-yas-trigger-key-hook)
+(add-hook 'html-mode-hook       'my-yas-trigger-key-hook)
+(add-hook 'css-mode-hook        'my-yas-trigger-key-hook)
+
+
+
+;;(yas/load-directory "~/.emacs.d/plugins/yasnippet-x.y.z/snippets")
+;;(setq yas/root-directory "~/.emacs.d/yasnippet") ; directory containing my templates
+;;(yas/load-directory yas/root-directory)          ;  Load the snippets
+
 
 ;; === Code completion ===
 ;; see http://www.emacswiki.org/emacs/TabCompletion
@@ -306,10 +334,20 @@
 
 ;; === Ruby ===
 ;; see http://sl33p3r.free.fr/blog/ruby/RubyAndEmacs.html
+;; automatic close parenthesis, 'def' keywords etc.
 (require 'ruby-electric)
+
+;; Ri (ruby info) for Emacs
+;; see http://rubyforge.org/projects/ri-emacs/
+;(setq ri-ruby-script "/Users/svarrette/.emacs.d/site-lisp/ri-emacs.rb")
+;(require 'ri-ruby)
+
+
 (defun my-ruby-mode-hook ()
-  (ruby-electric-mode))
+  (ruby-electric-mode t))
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
+
+
 
 (provide 'init-emodes)
 ;; ----------------------------------------------------------------------
