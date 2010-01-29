@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  15 Jan 2010
-;; Time-stamp: <Tue 2010-01-19 10:06 svarrette>
+;; Time-stamp: <2010-01-28 17:04:39 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -109,7 +109,6 @@
 ;;  * eassist-switch-h-cpp: switch from header to body file and backwards (for
 ;;                           C++ only)
 ;;  * eassist-list-methods:  produce method/function list
-(require 'eassist)
 
 (defun my-c-mode-common-hook ()
    (define-key c-mode-base-map (kbd "\C-xz") 'eassist-switch-h-cpp)

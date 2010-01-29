@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Thu 2010-01-28 15:19 svarrette>
+;; Time-stamp: <Ven 2010-01-29 15:55 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -229,25 +229,35 @@
 ;; documentation: http://zagadka.vm.bytemark.co.uk/magit/magit.html
 
 
+;; === Web developement ===
+;; NxhtmlMode : see http://www.emacswiki.org/emacs/NxhtmlMode
+;; and http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
+(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
+
+;; open a popup-menu for completing tags
+(defun my-nxml-complete-binding ()
+  (local-set-key (read-kbd-macro "C-<return>") 'nxml-complete))
+(add-hook 'nxml-mode 'my-nxml-complete-binding)
+
 ;; =========================================================================
 ;; =========================== PROGRAMMING STUFF ===========================
 ;; =========================================================================
 
 ;; === Automode alist ===
+;; list of filename patterns vs. corresponding major mode functions
 (setq auto-mode-alist
       (append
-       '(("\\.pov$"  . pov-mode)
-         ("\\.c$"    . c-mode)
-         ("\\.h$"    . c++-mode)
-         ("\\.cpp$"  . c++-mode)
-         ("\\.c$"    . c++-mode)
-         ("\\.cc$"   . c++-mode)
-         ("\\.hpp$"  . c++-mode)
-         ("\\.cxx$"  . c++-mode)
-         ("\\.gnuplot$" . gnuplot-mode)
-         ("\\.pl$"   . perl-mode)
-         ("\\.php$"  . php-mode)
-         ("\\.wml$"  . html-mode)
+       '(("\\.pov$"         . pov-mode)
+         ("\\.c$"           . c-mode)
+         ("\\.\\(h\\|cpp\\|cc\\|hpp\\|cxx\\)$"  . c++-mode)
+         ("\\.\\(wml\\|htm\\|html\\|xhtml\\)$"  . nxhtml-mode)
+         ("\\.\\(diffs?\\|patch\\|rej\\)\\'"    . diff-mode)
+         ("\\.\\(pl\\|pm\\|cgi\\)$"             . cperl-mode)
+         ("\\.gnuplot$"     . gnuplot-mode)
+         ("\\.php$"         . php-mode)
+         ("\\.css\\'"       . css-mode)
+         (".ssh/config\\'"  . ssh-config-mode)
+         ("sshd?_config\\'" . ssh-config-mode)
          ("^TO_DO"   . change-log-mode))
        auto-mode-alist))
 
@@ -297,18 +307,18 @@
 
 ;; key bindings
 (defun my-yas-trigger-key-hook ()
-   (local-set-key (read-kbd-macro "M-<return>") 'yas/expand)
-)
-;; application to the supported modes  
+  (local-set-key (read-kbd-macro "M-<return>") 'yas/expand)
+  )
+;; application to the supported modes
 (add-hook 'c-mode-common-hook   'my-yas-trigger-key-hook)
 (add-hook 'python-mode-hook     'my-yas-trigger-key-hook)
 (add-hook 'ruby-mode-hook       'my-yas-trigger-key-hook)
 (add-hook 'perl-mode-hook       'my-yas-trigger-key-hook)
 (add-hook 'lisp-mode-hook       'my-yas-trigger-key-hook)
+(add-hook 'nxhtml-mode-hook     'my-yas-trigger-key-hook)
 (add-hook 'emacs-lisp-mode-hook 'my-yas-trigger-key-hook)
 (add-hook 'latex-mode-hook      'my-yas-trigger-key-hook)
 (add-hook 'sql-mode-hook        'my-yas-trigger-key-hook)
-(add-hook 'html-mode-hook       'my-yas-trigger-key-hook)
 (add-hook 'css-mode-hook        'my-yas-trigger-key-hook)
 
 
@@ -339,8 +349,13 @@
 
 ;; Ri (ruby info) for Emacs
 ;; see http://rubyforge.org/projects/ri-emacs/
-;(setq ri-ruby-script "/Users/svarrette/.emacs.d/site-lisp/ri-emacs.rb")
-;(require 'ri-ruby)
+                                        ;(setq ri-ruby-script "/Users/svarrette/.emacs.d/site-lisp/ri-emacs.rb")
+                                        ;(require 'ri-ruby)
+
+;; Ruby on Rails
+;; see http://www.emacswiki.org/emacs/RubyOnRails
+;; In particular, I use the config from  http://github.com/dima-exe/emacs-rails-reloaded/tree/master
+                                        ;(require 'rails-autoload)
 
 
 (defun my-ruby-mode-hook ()

@@ -4,7 +4,7 @@
 ;;                      Install a base set of packages automatically.         
 ;;
 ;; Creation:  18 Jan 2010
-;; Time-stamp: <Thu 2010-01-28 14:29 svarrette>
+;; Time-stamp: <Jeu 2010-01-28 16:15 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -38,7 +38,8 @@
                                    'ruby-mode
                                    'ruby-compilation
                                    'inf-ruby
-                                   'magit)
+                                   'magit
+                                   'nxml-mode)
   "Libraries that should be installed by default.")
  
 (defun starter-kit-elpa-install ()

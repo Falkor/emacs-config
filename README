@@ -2,7 +2,7 @@
 ================================================================================
  File : README 
  Creation:  12 Jan 2010
- Time-stamp: <Thu 2010-01-28 15:18 svarrette>
+ Time-stamp: <Fri 2010-01-29 16:16 svarrette>
 
  Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
                http://varrette.gforge.uni.lu
@@ -91,8 +91,36 @@ Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
      at the first launch, some required packages will be automatically
      downloaded and installed.
 
+   - nxhtml (see http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html)
+     * Get the latest version from http://ourcomments.org/cgi-bin/emacsw32-dl-latest.pl
+       (see the link 'Download latest nXhtml (zip file)' at the bottom of the
+        page)
+     * Assuming you retrieved nxhtml-2.05-091202.zip
+         cd ~/.emacs.d/site-lisp
+         unzip /path/to/nxhtml-2.05-091202.zip
+         mv nxhtml nxhtml-2.05
+         ln -s nxhtml-2.05 nxhtml
+
+         
+         IGNORE THE NEXT ITEM - NOT FULLY TESTED YET
+   - emacs-rails-reloaded
+    * it is enough to retrieve the latest configig from
+      http://github.com/dima-exe/emacs-rails-reloaded 
+                                                      
+      Either click on "Download Source" or use git natively:
+         cd ~/.emacs.d/site-lisp
+         git clone git://github.com/dima-exe/emacs-rails-reloaded.git
+
+      Just ensure you'll finish with a directory
+      ~/.emacs.d/site-lisp/emacs-rails-reloaded that contains this configuration
+
 Now you can run emacs and ensure everything is normal. If not, as suggested, run
 it again with the '--debug-init' option and check eventually the FAQ. 
+
+Once this is done, you can byte-compile everything in the .emacs.d directory to
+accelerate the startup by running 
+           C-u 0 M-x byte-recompile-directory
+
 
 Note: you can find a nice (and complete) tutorial on emacs basic usage on
       http://www2.lib.uchicago.edu/keith/tcl-course/emacs-tutorial.html 
@@ -106,12 +134,16 @@ Note: you can find a nice (and complete) tutorial on emacs basic usage on
 ~/.emacs.d/init-defuns.el   Elisp functions definitions 
 ~/.emacs.d/init-display.el  Configure the display (color theme etc.)
 ~/.emacs.d/init-emodes.el   Configure the emacs modes
+~/.emacs.d/init-elpa.el     Configure the packages you want to install via the
+                            Emacs Lisp Package Archive (ELPA)
 ~/.emacs.d/init-cedet.el    Configure the CEDET environment
 ~/.emacs.d/elpa/            Directory containing the packages installed via ELPA  
 ~/.emacs.d/insert/          Directory that contains the templates for
                             auto-insertion
 ~/.emacs.d/site-lisp/       Directory containing the external elisp files used 
 ~/.emacs.d/themes/          Directory containing the additional color theme  
+~/.emacs.d/yasnippet/       Directory containing my personnal snippets (see
+                            http://emacswiki.org/Yasnippet)   
 
 For more information, read the configurations files as I try to put relevant
 information in comments.

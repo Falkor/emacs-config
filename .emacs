@@ -5,7 +5,7 @@
 ;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
-;; Time-stamp: <Thu 2010-01-28 14:35 svarrette>
+;; Time-stamp: <Thu 2010-01-28 17:18 svarrette>
 ;; -------------------------------------------------------------------------
 ;;
 ;;    ___ _ __ ___   __ _  ___ ___
@@ -107,7 +107,7 @@
 (setq load-path (cons "~/.emacs.d/elpa"      load-path)) ; packages installed via ELPA
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet/common")) 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/yasnippet")) 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/nxhtml")) 
 
 (CarbonEmacs
  (setenv "PATH" (concat "/sw/bin:/opt/local/bin:usr/local/bin:" (getenv "PATH"))))
@@ -225,7 +225,8 @@
 ;; Automatically compile .el files as they're loaded.
 ;; Keeps the compiled files in ~/.emacs.d/byte-cache by default, and will
 ;; automatically recompile any files that change
-                                        ;(require 'byte-code-cache)
+;;(require 'byte-code-cache)
+;;(setq bcc-cache-directory "~/.emacs.d/.byte-cache")
 
 ;; ===================================================
 ;;  Definition of some custom functions

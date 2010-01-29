@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Thu 2010-01-28 15:16 svarrette>
+;; Time-stamp: <Fri 2010-01-29 16:10 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -177,6 +177,9 @@
 
 ;; * CEDET: see ~/.emacs.d/init-cedet.el
 
+;; * nxHtml: see ~/.emacs.d/init-emodes.el, in particular C-<ret> is bind in
+;;  this case to popup the complete-tag menu very useful when editing some
+;;  [x]html file 
 
 
 
