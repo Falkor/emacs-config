@@ -2,7 +2,7 @@
 ================================================================================
  File : README 
  Creation:  12 Jan 2010
- Time-stamp: <Fri 2010-01-29 16:16 svarrette>
+ Time-stamp: <Mer 2010-02-10 11:05 svarrette>
 
  Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
                http://varrette.gforge.uni.lu
@@ -64,6 +64,8 @@ Once this is done, create the symlink to the .emacs file:
 Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
 
     - CEDET (the packaged version is too old) 
+      * ensure you removed the existing packages:
+            apt-get remove --purge cedet-common cedet-contrib ecb
       * Get the latest version from http://sourceforge.net/projects/cedet/files/
       * Let's assume it's cedet-1.0pre6.tar.gz (the one I checked)
       * uncompress in the correct directory: 
