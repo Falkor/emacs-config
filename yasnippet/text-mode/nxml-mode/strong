@@ -1,4 +1,4 @@
 #contributor : Anders Bach Nielsen <abachn@abachn.net>
-#name : <td>...</td>
+#name : <strong>...</strong>
 # --
-<td$1>$2</td>
+<strong>$1</strong>
