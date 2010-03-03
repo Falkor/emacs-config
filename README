@@ -2,7 +2,7 @@
 ================================================================================
  File : README 
  Creation:  12 Jan 2010
- Time-stamp: <Mer 2010-02-10 11:05 svarrette>
+ Time-stamp: <Wed 2010-03-03 19:10 svarrette>
 
  Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
                http://varrette.gforge.uni.lu
@@ -62,6 +62,7 @@ Once this is done, create the symlink to the .emacs file:
            ln -s .emacs.d/.emacs .emacs
 
 Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
+(one day, I'll make an autotools distribution to check the next items;) )
 
     - CEDET (the packaged version is too old) 
       * ensure you removed the existing packages:
@@ -103,7 +104,17 @@ Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
          mv nxhtml nxhtml-2.05
          ln -s nxhtml-2.05 nxhtml
 
-         
+   - EasyPG (see http://www.easypg.org/)
+     EasyPG is included in Emacs 23 so the following applies only for older versions.
+
+        gpg --verify epg-x.y.z.tar.gz.sig epg-x.y.z.tar.gz
+        tar xvzf epg-x.y.z.tar.gz
+        cd  epg-x.y.z
+        ./configure --prefix=$HOME/.emacs.d/site-lisp/epg-0.0.16
+        make install
+        cd ~/.emacs.d/site-lisp
+        ln -s epg-0.0.16/share/emacs/site-lisp/epg epg
+       
          IGNORE THE NEXT ITEM - NOT FULLY TESTED YET
    - emacs-rails-reloaded
     * it is enough to retrieve the latest configig from

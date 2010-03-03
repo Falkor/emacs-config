@@ -5,7 +5,7 @@
 ;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
-;; Time-stamp: <Thu 2010-01-28 17:18 svarrette>
+;; Time-stamp: <Wed 2010-03-03 19:01 svarrette>
 ;; -------------------------------------------------------------------------
 ;;
 ;;    ___ _ __ ___   __ _  ___ ___
@@ -69,7 +69,11 @@
 (defvar running-xemacs       (string-match "XEmacs" emacs-version))
 
 ;; Emacs version
-(cond ((string-match ".*macs *21\..*" (emacs-version))
+(cond ((string-match ".*macs *23\..*" (emacs-version))
+       (setq emacs-major-version 23))
+      ((string-match ".*macs *22\..*" (emacs-version))
+       (setq emacs-major-version 22))
+      ((string-match ".*macs *21\..*" (emacs-version))
        (setq emacs-major-version 21))
       ((string-match ".*macs *20\..*" (emacs-version))
        (setq emacs-major-version 20))
@@ -108,6 +112,8 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet/common")) 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/nxhtml")) 
+(unless (equal emacs-major-version 23)
+  (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/epg"))) 
 
 (CarbonEmacs
  (setenv "PATH" (concat "/sw/bin:/opt/local/bin:usr/local/bin:" (getenv "PATH"))))
