@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Mer 2010-03-03 18:47 svarrette>
+;; Time-stamp: <Mar 2010-03-30 18:04 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -273,11 +273,9 @@
 ;; === Doxymacs ===
 ;; see http://doxymacs.sourceforge.net/
 ;; to be installed on your machine as it contains a compiled code
-
-;;(setq load-path (cons "~/.emacs.d/doxymacs/share/emacs/site-lisp/" load-path))
-;;(require 'doxymacs)
-;;(add-hook 'c-mode-hook   'doxymacs-mode)
-;;(add-hook 'c++-mode-hook 'doxymacs-mode)
+(require 'doxymacs)
+(add-hook 'c-mode-hook   'doxymacs-mode)
+(add-hook 'c++-mode-hook 'doxymacs-mode)
 
 ;; === Source file navigation ===
 ;; load the corresponding file C/C++ header or source file for the current

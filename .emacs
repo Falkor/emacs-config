@@ -5,7 +5,7 @@
 ;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
-;; Time-stamp: <Wed 2010-03-03 19:01 svarrette>
+;; Time-stamp: <Mar 2010-03-30 18:04 svarrette>
 ;; -------------------------------------------------------------------------
 ;;
 ;;    ___ _ __ ___   __ _  ___ ___
@@ -109,12 +109,12 @@
 (setq load-path (cons "~/.emacs.d/themes"    load-path)) ; emacs display themes
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path)) ; external elisp files
 (setq load-path (cons "~/.emacs.d/elpa"      load-path)) ; packages installed via ELPA
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet/common")) 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/nxhtml")) 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb")) ; ECB
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/cedet/common")) ; CEDET 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/nxhtml")) ; NXHTML
 (unless (equal emacs-major-version 23)
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/epg"))) 
-
+(setq load-path (cons "~/.emacs.d/site-lisp/doxymacs/share/emacs/site-lisp/" load-path)) ; Doxymacs
 (CarbonEmacs
  (setenv "PATH" (concat "/sw/bin:/opt/local/bin:usr/local/bin:" (getenv "PATH"))))
 
@@ -333,6 +333,7 @@
         ("\\.C$"        . "C++")              ;
         ("[Mm]akefile$" . "Makefile")         ; Makefile
         ("\\.txt$"      . "Text")             ; Text
+        ("\\.gpg$"      . "GPG")              ; GPG 
         ("[Rr]eadme$"   . "Readme")           ; Readme
         ("README$"      . "Readme")           ;
         ("\\.sh$"       . "Shell")            ; Shell
@@ -364,6 +365,7 @@
         ("Logs C++ Include" . "insert.logs.h")
         ("Makefile"    . "insert.makefile")
         ("Text"        . "insert.txt")
+        ("GPG"         . "insert.gpg")
         ("Readme"      . "insert.readme")
         ("Shell"       . "insert.shell")
         ("Html"        . "insert.html")

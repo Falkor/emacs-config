@@ -2,7 +2,7 @@
 ================================================================================
  File : README 
  Creation:  12 Jan 2010
- Time-stamp: <Wed 2010-03-03 19:10 svarrette>
+ Time-stamp: <Mar 2010-03-30 17:52 svarrette>
 
  Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
                http://varrette.gforge.uni.lu
@@ -126,6 +126,19 @@ Now a few additional packages should be installed in ~/.emacs.d/site-lisp/
 
       Just ensure you'll finish with a directory
       ~/.emacs.d/site-lisp/emacs-rails-reloaded that contains this configuration
+   
+   - Doxymacs http://doxymacs.sourceforge.net/
+     * Retrieve the source package (ver 1.8.0 tested), and run: 
+
+       tar xvzf doxymacs-1.8.0.tar.gz
+       cd doxymacs-1.8.0
+       ./configure --prefix=$HOME/.emacs.d/site-lisp/doxymacs-1.8.0
+       make 
+       make install
+       cd ~/.emacs.d/site-lisp
+       ln -s doxymacs-1.8.0 doxymacs
+       
+
 
 Now you can run emacs and ensure everything is normal. If not, as suggested, run
 it again with the '--debug-init' option and check eventually the FAQ. 
