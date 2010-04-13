@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Mar 2010-03-30 18:04 svarrette>
+;; Time-stamp: <Mar 2010-04-13 14:24 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -78,10 +78,10 @@
 (setq flyspell-consider-dash-as-word-delimiter-flag t)
 
 ;; Add flyspell to the following major modes
-(add-hook 'latex-mode-hook      'flyspell-mode)
-(add-hook 'text-mode-hook       'flyspell-mode)
-(add-hook 'html-mode-hook       'flyspell-mode)
-(add-hook 'messsage-mode-hook   'flyspell-mode)
+(dolist (hook '(text-mode-hook html-mode-hook messsage-mode-hook))
+  (add-hook hook (lambda () 
+                   (turn-on-auto-fill) 
+                   (flyspell-mode t))))
 
 ;; disable flyspell in change log and log-edit mode that derives from text-mode
 (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
@@ -89,16 +89,20 @@
 
 ;; flyspell comments and strings in programming modes
 ;; (preventing it from finding mistakes in the code)
-(add-hook 'autoconf-mode-hook   'flyspell-prog-mode)
-(add-hook 'autotest-mode-hook   'flyspell-prog-mode)
-(add-hook 'c++-mode-hook        'flyspell-prog-mode)
-(add-hook 'c-mode-hook          'flyspell-prog-mode)
-(add-hook 'cperl-mode-hook      'flyspell-prog-mode)
-(add-hook 'emacs-lisp-mode-hook 'flyspell-prog-mode)
-(add-hook 'makefile-mode-hook   'flyspell-prog-mode)
-(add-hook 'nxml-mode-hook       'flyspell-prog-mode)
-(add-hook 'python-mode-hook     'flyspell-prog-mode)
-(add-hook 'sh-mode-hook         'flyspell-prog-mode)
+(dolist (hook '(autoconf-mode-hook autotest-mode-hook c++-mode-hook c-mode-hook cperl-mode-hook  emacs-lisp-mode-hook makefile-mode-hook nxml-mode-hook python-mode-hook
+ sh-mode-hook))
+  (add-hook hook 'flyspell-prog-mode))
+
+;; (add-hook 'autoconf-mode-hook   'flyspell-prog-mode)
+;; (add-hook 'autotest-mode-hook   'flyspell-prog-mode)
+;; (add-hook 'c++-mode-hook        'flyspell-prog-mode)
+;; (add-hook 'c-mode-hook          'flyspell-prog-mode)
+;; (add-hook 'cperl-mode-hook      'flyspell-prog-mode)
+;; (add-hook 'emacs-lisp-mode-hook 'flyspell-prog-mode)
+;; (add-hook 'makefile-mode-hook   'flyspell-prog-mode)
+;; (add-hook 'nxml-mode-hook       'flyspell-prog-mode)
+;; (add-hook 'python-mode-hook     'flyspell-prog-mode)
+;; (add-hook 'sh-mode-hook         'flyspell-prog-mode)
 
 ;; spell-check your XHTML
 (eval-after-load "flyspell"

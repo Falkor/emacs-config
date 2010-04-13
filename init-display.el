@@ -4,7 +4,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;            
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Tue 2010-01-12 14:52 svarrette>
+;; Time-stamp: <Tue 2010-04-13 21:30 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -27,6 +27,22 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;; ----------------------------------------------------------------------
+
+;; === Fix the "copy-paste from MS Word" issue on Mac OS X ===
+;; prohibit pasting of TIFFs
+(defun x-selection-value (type)
+  (let ((data-types '(public.file-url
+                       public.utf16-plain-text
+                       com.apple.traditional-mac-plain-text))
+    text)
+    (while (and (null text) data-types)
+      (setq text (condition-case nil
+    	     (x-get-selection type (car data-types))
+    	   (error nil)))
+      (setq data-types (cdr data-types)))
+    (if text
+    (remove-text-properties 0 (length text) '(foreign-selection nil) text))
+    text))
 
 ;; === Default size of the frame ===
 (set-frame-width (selected-frame) 120)
