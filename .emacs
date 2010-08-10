@@ -345,6 +345,7 @@
         ("\\.gnuplot"   . "Gnuplot")          ; Gnuplot
         ("\\.pl$"       . "Perl")             ; Perl
         ("\\.pm$"       . "Perl Module")      ; PerlModule
+        ("\\.t$"        . "Perl Test")        ; Perl Test script
         ("\\.rb$"       . "Ruby")             ; Ruby
         (""             . "Shell") ; Shell (by default: assume a shell template)
         ))
@@ -374,6 +375,7 @@
         ("Gnuplot"     . "insert.gnuplot")
         ("Perl"        . "insert.pl")
         ("Perl Module" . "insert.pm")
+        ("Perl Test"   . "insert.t")
         ("Ruby"        . "insert.rb")
         ))
 

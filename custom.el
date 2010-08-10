@@ -8,7 +8,7 @@
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
  '(ecb-source-file-regexps (quote ((".*" ("\\(^\\(\\.\\|#\\)\\|\\(~$\\|\\.\\(elc\\|obj\\|o\\|class\\|lib\\|dll\\|a\\|so\\|cache\\)$\\)\\)") ("^\\.\\(emacs\\|gnus\\)$")))))
- '(ecb-source-path (quote (("~/" "Home") (#("/Users/svarrette/svn/gforge.uni.lu/inids/trunk" 0 46 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "LibINIDS")))))
+ '(ecb-source-path (quote (("~/" "Home") (#("/Users/svarrette/svn/gforge.uni.lu/inids/trunk" 0 46 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "LibINIDS") (#("/Users/svarrette/svn/gforge.uni.lu/libgep" 0 41 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "LibGEP")))))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
