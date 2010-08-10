@@ -315,39 +315,40 @@
 ;; associate file extention to a template name
 (setq auto-insert-alist
       '(
-        ("\\.tex$"      . "LaTeX")            ; TeX or LaTeX
-        ("\\.bib$"      . "BibTeX")           ; BibTeX
-        ("\\.sty$"      . "LaTeX Style")      ; LaTeX Style
-        ("\\.el$"       . "Emacs Lisp")       ; Emacs Lisp
-        ("\\.java$"     . "Java")             ; Java
-        ("\\App.java$"  . "JavaSwing")        ; Java Swing app
-        ("[Tt]ools.h"   . "Tools C++")        ; Useful functions in C/C++
-        ("\\Logs.cpp"   . "Logs C++")         ; Macros for logs/debugging
-        ("\\Logs.h[+p]*". "Logs C++ Include") ; " header file
-        ("\\.c$"        . "C")                ; C
-        ("\\.h$"        . "C Include")        ; C header file
-        ("\\.cxx$"      . "C++")              ; C++
-        ("\\.c\\+\\+$"  . "C++")              ;
-        ("\\.cpp$"      . "C++")              ;
-        ("\\.cc$"       . "C++")              ;
-        ("\\.C$"        . "C++")              ;
-        ("[Mm]akefile$" . "Makefile")         ; Makefile
-        ("\\.txt$"      . "Text")             ; Text
-        ("\\.gpg$"      . "GPG")              ; GPG 
-        ("[Rr]eadme$"   . "Readme")           ; Readme
-        ("README$"      . "Readme")           ;
-        ("\\.sh$"       . "Shell")            ; Shell
-        ("\\.csh$"      . "Shell")            ;
-        ("\\.tcsh$"     . "Shell")            ;
-        ("\\.html"      . "Html")             ; HTML
-        ("\\.wml"       . "WML")              ; WML (Website Meta Language)
-        ("\\.php"       . "PHP")              ; PHP
-        ("\\.gnuplot"   . "Gnuplot")          ; Gnuplot
-        ("\\.pl$"       . "Perl")             ; Perl
-        ("\\.pm$"       . "Perl Module")      ; PerlModule
-        ("\\.t$"        . "Perl Test")        ; Perl Test script
-        ("\\.rb$"       . "Ruby")             ; Ruby
-        (""             . "Shell") ; Shell (by default: assume a shell template)
+        ("\\.tex$"         . "LaTeX")            ; TeX or LaTeX
+        ("\\.bib$"         . "BibTeX")           ; BibTeX
+        ("\\.sty$"         . "LaTeX Style")      ; LaTeX Style
+        ("\\.el$"          . "Emacs Lisp")       ; Emacs Lisp
+        ("\\.java$"        . "Java")             ; Java
+        ("\\App.java$"     . "JavaSwing")        ; Java Swing app
+        ("[Tt]ools.h"      . "Tools C++")        ; Useful functions in C/C++
+        ("\\Logs.cpp"      . "Logs C++")         ; Macros for logs/debugging
+        ("\\Logs.h[+p]*"   . "Logs C++ Include") ; " header file
+        ("\\.c$"           . "C")                ; C
+        ("\\.h$"           . "C Include")        ; C header file
+        ("\\.cxx$"         . "C++")              ; C++
+        ("\\.c\\+\\+$"     . "C++")              ;
+        ("\\.cpp$"         . "C++")              ;
+        ("\\.cc$"          . "C++")              ;
+        ("\\.C$"           . "C++")              ;
+        ("[Mm]akefile$"    . "Makefile")         ; Makefile
+        ("[Mm]akefile.am$" . "Makefile.am")   ; Makefile.am (Automake)
+        ("\\.txt$"         . "Text")             ; Text
+        ("\\.gpg$"         . "GPG")              ; GPG 
+        ("[Rr]eadme$"      . "Readme")           ; Readme
+        ("README$"         . "Readme")           ;
+        ("\\.sh$"          . "Shell")            ; Shell
+        ("\\.csh$"         . "Shell")            ;
+        ("\\.tcsh$"        . "Shell")            ;
+        ("\\.html"         . "Html")             ; HTML
+        ("\\.wml"          . "WML")              ; WML (Website Meta Language)
+        ("\\.php"          . "PHP")              ; PHP
+        ("\\.gnuplot"      . "Gnuplot")          ; Gnuplot
+        ("\\.pl$"          . "Perl")             ; Perl
+        ("\\.pm$"          . "Perl Module")      ; PerlModule
+        ("\\.t$"           . "Perl Test")        ; Perl Test script
+        ("\\.rb$"          . "Ruby")             ; Ruby
+        (""                . "Shell") ; Shell (by default: assume a shell template)
         ))
 ;; now associate a template name to a template file
 (setq auto-insert-type-alist
@@ -365,6 +366,7 @@
         ("Logs C++"    . "insert.logs.cpp")
         ("Logs C++ Include" . "insert.logs.h")
         ("Makefile"    . "insert.makefile")
+        ("Makefile.am" . "insert.makefile.am")
         ("Text"        . "insert.txt")
         ("GPG"         . "insert.gpg")
         ("Readme"      . "insert.readme")
