@@ -111,6 +111,10 @@
 
 ;; TODO: Take a look at `diction' (style and grammar)
 
+;; ========= apache-mode ===========
+;; see http://www.emacswiki.org/cgi-bin/wiki/apache-mode.el
+(require 'apache-mode)
+
 ;; ===================================================
 ;; === Recentf mode ===
 ;; see http://www.emacswiki.org/emacs/RecentFiles
