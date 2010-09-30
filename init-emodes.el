@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Mar 2010-04-13 14:24 svarrette>
+;; Time-stamp: <Thu 2010-09-30 13:32 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -113,7 +113,9 @@
 
 ;; ========= apache-mode ===========
 ;; see http://www.emacswiki.org/cgi-bin/wiki/apache-mode.el
+;; Major mode for editing apache configuration files
 (require 'apache-mode)
+
 
 ;; ===================================================
 ;; === Recentf mode ===
@@ -251,12 +253,18 @@
 ;; =========================== PROGRAMMING STUFF ===========================
 ;; =========================================================================
 
+;; === POD mode ===
+;; see http://github.com/jrockway/emacs-pod-mode
+(require 'pod-mode)
+(add-hook 'pod-mode-hook 'font-lock-mode)
+
 ;; === Automode alist ===
 ;; list of filename patterns vs. corresponding major mode functions
 (setq auto-mode-alist
       (append
        '(("\\.pov$"         . pov-mode)
          ("\\.c$"           . c-mode)
+         ("\\.pod$"         . pod-mode)
          ("\\.\\(h\\|cpp\\|cc\\|hpp\\|cxx\\)$"  . c++-mode)
          ("\\.\\(wml\\|htm\\|html\\|xhtml\\)$"  . nxhtml-mode)
          ("\\.\\(diffs?\\|patch\\|rej\\)\\'"    . diff-mode)
