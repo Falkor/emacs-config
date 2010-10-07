@@ -5,7 +5,6 @@
 ;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
-;; Time-stamp: <Mar 2010-03-30 18:04 svarrette>
 ;; -------------------------------------------------------------------------
 ;;
 ;;    ___ _ __ ___   __ _  ___ ___
@@ -147,7 +146,9 @@
 ;; You really don't need these (except perhaps the menu-bar); trust me.
 ;;(if (fboundp 'menu-bar-mode) (menu-bar-mode nil))
 (if (fboundp 'tool-bar-mode)   (tool-bar-mode nil))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode nil))
+
+;; scroll bar may be useful - replace 't' by 'nil' to disable right scrollbar
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode t))
 
 (setq truncate-partial-width-windows nil)
 (setq line-number-mode         t)
