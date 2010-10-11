@@ -244,15 +244,15 @@
 ;; documentation: http://zagadka.vm.bytemark.co.uk/magit/magit.html
 
 
-;; === Web developement ===
-;; NxhtmlMode : see http://www.emacswiki.org/emacs/NxhtmlMode
-;; and http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
-(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
+;; ;; === Web developement ===
+;; ;; NxhtmlMode : see http://www.emacswiki.org/emacs/NxhtmlMode
+;; ;; and http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
+;; (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 
-;; open a popup-menu for completing tags
-(defun my-nxml-complete-binding ()
-  (local-set-key (read-kbd-macro "C-<return>") 'nxml-complete))
-(add-hook 'nxml-mode 'my-nxml-complete-binding)
+;; ;; open a popup-menu for completing tags
+;; (defun my-nxml-complete-binding ()
+;;   (local-set-key (read-kbd-macro "C-<return>") 'nxml-complete))
+;; (add-hook 'nxml-mode 'my-nxml-complete-binding)
 
 ;; =========================================================================
 ;; =========================== PROGRAMMING STUFF ===========================
@@ -378,7 +378,7 @@
 
 ;; Puppet confif
 (require 'puppet-mode)
-(setq auto-mode-alist (cons '("\\.pp$" . puppet-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 
 ;; Ri (ruby info) for Emacs
 ;; see http://rubyforge.org/projects/ri-emacs/
