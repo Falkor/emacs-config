@@ -1,16 +1,21 @@
-;; ----------------------------------------------------------------------
+;; -------------------------------------------------------------------------
 ;; File: init-emodes.el -  configure Emacs mode options
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
-;;
-;; Creation:  08 Jan 2010
-;; Time-stamp: <Thu 2010-09-30 13:32 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
+;; -------------------------------------------------------------------------
+;;   _       _ _                                 _                      _ 
+;;  (_)_ __ (_) |_       ___ _ __ ___   ___   __| | ___  ___        ___| |
+;;  | | '_ \| | __|____ / _ \ '_ ` _ \ / _ \ / _` |/ _ \/ __|      / _ \ |
+;;  | | | | | | ||_____|  __/ | | | | | (_) | (_| |  __/\__ \  _  |  __/ |
+;;  |_|_| |_|_|\__|     \___|_| |_| |_|\___/ \__,_|\___||___/ (_)  \___|_|
+;;                                                                      
+;; -------------------------------------------------------------------------
 ;; More information about Emacs Lisp:
 ;;              http://www.emacswiki.org/emacs/EmacsLisp
-;; ----------------------------------------------------------------------
+;; -------------------------------------------------------------------------
 ;; This file is NOT part of GNU Emacs.
 ;;
 ;; This program is free software: you can redistribute it and/or modify
@@ -25,7 +30,7 @@
 ;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
-;; ----------------------------------------------------------------------
+;; -------------------------------------------------------------------------
 
 ;; ===================================================
 ;; === Aspell/Ispell spell checking ===
@@ -366,6 +371,10 @@
 ;; see http://sl33p3r.free.fr/blog/ruby/RubyAndEmacs.html
 ;; automatic close parenthesis, 'def' keywords etc.
 (require 'ruby-electric)
+
+;; rdoc mode
+(require 'rdoc-mode)
+(add-hook 'ruby-mode-hook 'rdoc-mode)
 
 ;; Ri (ruby info) for Emacs
 ;; see http://rubyforge.org/projects/ri-emacs/
