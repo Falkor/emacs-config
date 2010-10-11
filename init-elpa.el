@@ -1,17 +1,21 @@
-;; ----------------------------------------------------------------------
+;; -------------------------------------------------------------------------
 ;; File: init-elpa.el - initialize the Emacs Lisp Package Archive (ELPA) 
 ;;                      see http://tromey.com/elpa/  
 ;;                      Install a base set of packages automatically.         
 ;;
-;; Creation:  18 Jan 2010
-;; Time-stamp: <Jeu 2010-01-28 16:15 svarrette>
-;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
-;;
+;; 
+;;          _       _ _             _                        _ 
+;;         (_)_ __ (_) |_       ___| |_ __   __ _        ___| |
+;;         | | '_ \| | __|____ / _ \ | '_ \ / _` |      / _ \ |
+;;         | | | | | | ||_____|  __/ | |_) | (_| |  _  |  __/ |
+;;         |_|_| |_|_|\__|     \___|_| .__/ \__,_| (_)  \___|_|
+;;                                   |_|                       
+;; 
 ;; More information about Emacs Lisp: 
 ;;              http://www.emacswiki.org/emacs/EmacsLisp
-;; ----------------------------------------------------------------------
+;; -------------------------------------------------------------------------
 ;; This file is NOT part of GNU Emacs.
 ;;
 ;; This program is free software: you can redistribute it and/or modify
@@ -26,7 +30,7 @@
 ;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
-;; ----------------------------------------------------------------------
+;; -------------------------------------------------------------------------
 ;; Directly Inspired by Emacs Starter Kit 
 ;; see http://github.com/technomancy/emacs-starter-kit/blob/master/
 

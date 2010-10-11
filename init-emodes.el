@@ -376,9 +376,11 @@
 (require 'rdoc-mode)
 (add-hook 'ruby-mode-hook 'rdoc-mode)
 
-;; Puppet confif
+;; Puppet config
 (require 'puppet-mode)
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
+
+
 
 ;; Ri (ruby info) for Emacs
 ;; see http://rubyforge.org/projects/ri-emacs/
