@@ -368,18 +368,26 @@
 
 
 ;; === Ruby ===
+;; cf http://www.emacswiki.org/emacs/RubyMode
+;; ruby-mode is included in Emacs 23 and is also available via ELPA
+;;(require 'ruby-mode)
+(autoload    'ruby-mode       "ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(setq ruby-indent-level 4)
+
 ;; see http://sl33p3r.free.fr/blog/ruby/RubyAndEmacs.html
 ;; automatic close parenthesis, 'def' keywords etc.
 (require 'ruby-electric)
 
 ;; rdoc mode
-(require 'rdoc-mode)
-(add-hook 'ruby-mode-hook 'rdoc-mode)
+;(require 'rdoc-mode)
+;(add-hook 'ruby-mode-hook 'rdoc-mode)
 
 ;; Puppet config
 (require 'puppet-mode)
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
-
+(setq puppet-indent-level 4)
 
 
 ;; Ri (ruby info) for Emacs

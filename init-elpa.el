@@ -39,13 +39,15 @@
 ;; see http://tromey.com/elpa/news.html for available packages
 (defvar starter-kit-packages (list 'idle-highlight
                                    'smart-tab
-                                   'ruby-mode
+ 				   'ruby-mode
                                    'ruby-compilation
                                    'inf-ruby
                                    'magit
                                    'nxml-mode)
   "Libraries that should be installed by default.")
- 
+
+
+
 (defun starter-kit-elpa-install ()
   "Install all starter-kit packages that aren't installed."
   (interactive)
