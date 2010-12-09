@@ -366,6 +366,9 @@
 ;; see ~/.emacs.d/init-cedet.el
 (require 'init-cedet)
 
+;; === Markdown ===
+;; see http://jblevins.org/projects/markdown-mode/
+(require 'markdown-mode)
 
 ;; === Ruby ===
 ;; cf http://www.emacswiki.org/emacs/RubyMode
@@ -381,7 +384,7 @@
 (require 'ruby-electric)
 
 ;; rdoc mode
-;(require 'rdoc-mode)
+(require 'rdoc-mode)
 ;(add-hook 'ruby-mode-hook 'rdoc-mode)
 
 ;; Puppet config
@@ -402,6 +405,16 @@
 ;; (defun my-ruby-mode-hook ()
 ;;   (ruby-electric-mode t))
 ;; (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
+
+;; Webgen (static website generation)
+;; see http://webgen.rubyforge.org/
+;; Webgen mode: http://www.emacswiki.org/emacs/WebgenMode
+(require 'webgen-mode nil t)
+(add-to-list 'auto-mode-alist '("\\.page$" .     (lambda () (markdown-mode) (webgen-mode))))
+(add-to-list 'auto-mode-alist '("\\.template$" . (lambda () (html-mode)     (webgen-mode))))
+(add-to-list 'auto-mode-alist '("[Mm]etainfo$" . (lambda () (text-mode)     (webgen-mode))))
+
+
 
 
 (provide 'init-emodes)
