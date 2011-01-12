@@ -93,8 +93,11 @@
 ;; =================================================================
 ;; WITH color theme
 (require 'color-theme)
-(CarbonEmacs 
-	(color-theme-initialize))
+;;(CarbonEmacs 
+	(color-theme-initialize)
+;;)
+;;(Aquamacs 
+;;	(color-theme-initialize))
 (setq color-theme-is-global t)
 
 
