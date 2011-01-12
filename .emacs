@@ -101,6 +101,9 @@
 ;;       (something-to-do)
 ;;       (something-to-do)
 ;;       ))
+(defmacro Aquamacs (&rest body)
+  "Execute any number of forms if running under Mac OS X port Aquamacs."
+  (list 'if (featurep 'aquamacs) (cons 'progn body)))
 
 
 ;; === Load path etc. ===
