@@ -356,7 +356,8 @@
 ;; === Auto Encryption (with GPG etc.) ===
 ;; =======================================
 ;; See http://www.emacswiki.org/emacs/EasyPG
-(require 'epa-setup)
+(CarbonEmacs
+ (require 'epa-setup))
 
 ;; ================================================
 ;; === Integrated Development Environment (IDE) ===
