@@ -136,6 +136,11 @@
        ))
    (load-local-site-start "/Library/Application Support/emacs/ec-emacs/site-lisp")))
 
+;; === Specific Aquamacs configuration ===
+;; (Aquamacs
+
+;; )
+
 ;; =====================
 ;; General Emacs Options
 ;; =====================
@@ -151,7 +156,7 @@
 (if (fboundp 'tool-bar-mode)   (tool-bar-mode nil))
 
 ;; scroll bar may be useful - replace 't' by 'nil' to disable right scrollbar
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode t))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode nil))
 
 (setq truncate-partial-width-windows nil)
 (setq line-number-mode         t)
@@ -279,13 +284,34 @@
 (XEmacs
  (paren-set-mode 'paren))
 
+(setq show-paren-style 'expression)
+(set-face-background 'show-paren-match-face "turquoise")
+;; (set-face-attribute 'show-paren-match-face nil 
+;;                     :weight 'bold :underline nil :overline nil :slant 'normal)
+(set-face-foreground 'show-paren-mismatch-face "red") 
+(set-face-attribute 'show-paren-mismatch-face nil 
+                    :weight 'bold :underline t :overline nil :slant 'normal)
+
+
 ;; show matching parenthesis, even if found outside the present screen.
 ;; see http://www.emacswiki.org/emacs/MicParen
 (require 'mic-paren)                    ; loading
 (paren-activate)                        ; activating
 
+;; ==============================================================
+;; Autopair: Automagically pair braces and quotes like TextMate
+;; see http://code.google.com/p/autopair/ or 
+;; http://www.emacswiki.org/emacs/AutoPairs
+;; ==============================================================
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers 
+(setq autopair-autowrap t) 
+
 ;; === Indenting configuration ===
 (setq-default indent-tabs-mode nil)     ; indentation can't insert tabs
+
+;; Automatic indentation of pasted text like in TextMate
+;; See M-v command in init-bindings.el for yand-and-indent
 
 (setq c-brace-offset -2)
 ;;(setq c-auto-newline t)
