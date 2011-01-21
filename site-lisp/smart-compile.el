@@ -55,6 +55,7 @@
 ;;  ("\\.c\\'"          . "gcc -O2 %f -lm -o %n && ./%n")
   ("\\.[Cc]+[Pp]*\\'" . "g++ -Wall -pedantic %f -lm -o %n")
   ("\\.m\\'"          . "gcc -O2 %f -lobjc -lpthread -o %n")
+  ("\\.page\\'"       . "rake")
   ("\\.java\\'"       . "javac -O %f")
   ("\\.php\\'"        . "php -l %f")
   ("\\.f90\\'"        . "gfortran %f -o %n")
