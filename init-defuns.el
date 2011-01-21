@@ -2,14 +2,16 @@
 ;; File: init-defuns.el - Definition of custom elisp functions 
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
-;; Creation:  08 Jan 2010
-;; Time-stamp: <Tue 2010-01-12 14:26 svarrette>
-;;
-;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
+;; Copyright (c) 2000-2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
 ;;
-;; More information about Emacs Lisp: 
-;;              http://www.emacswiki.org/emacs/EmacsLisp
+;; -------------------------------------------------------------------------
+;;  _       _ _            _       __                       _ 
+;; (_)_ __ (_) |_       __| | ___ / _|_   _ _ __  ___   ___| |
+;; | | '_ \| | __|____ / _` |/ _ \ |_| | | | '_ \/ __| / _ \ |
+;; | | | | | | ||_____| (_| |  __/  _| |_| | | | \__ \|  __/ |
+;; |_|_| |_|_|\__|     \__,_|\___|_|  \__,_|_| |_|___(_)___|_|
+;;
 ;; ----------------------------------------------------------------------
 ;; This file is NOT part of GNU Emacs.
 ;;
@@ -31,10 +33,10 @@
 (require 'imenu)
 
 ;; === Word count ===
-;(defun word-count nil 
-;  "Count words in buffer" 
-;  (interactive)
-;  (shell-command-on-region (point-min) (point-max) "wc -w"))
+                                        ;(defun word-count nil 
+                                        ;  "Count words in buffer" 
+                                        ;  (interactive)
+                                        ;  (shell-command-on-region (point-min) (point-max) "wc -w"))
 
 ;; Courtesy of Evan Sultanik (http://www.sultanik.com/Word_count_in_Emacs)
 ;; quote: "I wrote a relatively simple (and equally lazy) Emacs Lisp function to
@@ -78,6 +80,14 @@
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max)))
+
+;; === Yank (copy) and indent the copied region
+;; see http://www.emacswiki.org/emacs/AutoIndentation
+(defun yank-and-indent ()
+  "Yank and then indent the newly formed region according to mode."
+  (interactive)
+  (yank)
+  (call-interactively 'indent-region))
 
 ;; === Load path related ===
 (defun load-local-site-start (site-lisp-directory) 
@@ -225,7 +235,7 @@ insert `%'."
   (interactive)
   (if ecb-minor-mode
       (ecb-deactivate)
-	(ecb-activate)))
+    (ecb-activate)))
 
 ;; Function to launch the 'open' command on a file selected in dired
 ;; If on Ubuntu, you should symlink /usr/bin/open to /usr/bin/gnome-open
@@ -238,15 +248,35 @@ insert `%'."
 
 ;; remove the compilation buffer if there was no error
 ;; see http://www.emacswiki.org/emacs/ModeCompile
+;; Winner mode version of this function - excellent but not compatible with ECB
 (defun compile-autoclose (buffer string)
   "Switch back to whatever buffer was in your other window 
    if compilation is successful."
   (cond ((string-match "finished" string)
          (bury-buffer "*compilation*")
-         (winner-undo)
+         (replace-buffer-in-windows "*compilation*")
          (message "Build successful."))
         (t                                                                    
          (message "Compilation exited abnormally: %s" string))))
+;; (defun compile-autoclose (buffer string)
+;;   "Switch back to whatever buffer was in your other window 
+;;    if compilation is successful."
+;;   (cond ((string-match "finished" string)
+;;          (bury-buffer "*compilation*")
+;;          (winner-undo)
+;;          (message "Build successful."))
+;;         (t                                                                    
+;;          (message "Compilation exited abnormally: %s" string))))
+;; (defun compile-autoclose (buffer string)
+;;   (cond ((string-match "finished" string) 
+;;          (message "Build maybe successful: closing window.")
+;;          (run-with-timer 10 nil                      
+;;                          'delete-window              
+;;                          (get-buffer-window buffer t)))
+;;         (t                                                                    
+;;          (message "Compilation exited abnormally: %s" string))))
+
+
 
 ;; useful for ruby-mode 
 ;; see http://groups.google.com/group/emacs-on-rails/browse_thread/thread/ae87fc797822bf3
@@ -266,4 +296,4 @@ insert `%'."
 ;; mode: lisp
 ;; End: 
 
- 
+
