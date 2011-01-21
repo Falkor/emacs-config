@@ -190,7 +190,7 @@
 (setq ecb-vc-enable-support t)          ; show versionning status of the files
                                         ; in the sources/hstory (SVN etc.)
 ;; autostart ECB on emacs startup (put to nil to desactivate)
-(setq ecb-auto-activate t)
+;;(setq ecb-auto-activate t)
 
 ;; --- Annoyances
 ;; use the primary button to navigate in the source tree -- middle button otherwise (!?!)
