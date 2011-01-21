@@ -4,7 +4,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;            
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Tue 2010-04-13 21:30 svarrette>
+;; Time-stamp: <Fri 2011-01-14 10:23 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -32,22 +32,22 @@
 ;; prohibit pasting of TIFFs
 (defun x-selection-value (type)
   (let ((data-types '(public.file-url
-                       public.utf16-plain-text
-                       com.apple.traditional-mac-plain-text))
-    text)
+                      public.utf16-plain-text
+                      com.apple.traditional-mac-plain-text))
+        text)
     (while (and (null text) data-types)
       (setq text (condition-case nil
-    	     (x-get-selection type (car data-types))
-    	   (error nil)))
+                     (x-get-selection type (car data-types))
+                   (error nil)))
       (setq data-types (cdr data-types)))
     (if text
-    (remove-text-properties 0 (length text) '(foreign-selection nil) text))
+        (remove-text-properties 0 (length text) '(foreign-selection nil) text))
     text))
 
 ;; === Default size of the frame ===
 (set-frame-width (selected-frame) 120)
 (set-frame-height (selected-frame) 40)
- 
+
 ;; === remove the few annoyance of default emacs ===
 ;; Use "y or n" answers instead of full words "yes or no"
 (fset 'yes-or-no-p 'y-or-n-p) 
@@ -60,8 +60,8 @@
 (pc-selection-mode)
 
 ;; no blinking cursor
-;(if (>= emacs-major-version 21)
-;    (blink-cursor-mode nil))
+                                        ;(if (>= emacs-major-version 21)
+                                        ;    (blink-cursor-mode nil))
 
 ;; === display current time in the status bar ===
 (setq display-time-day-and-date t
@@ -86,6 +86,12 @@
 (setq frame-title-format '(buffer-file-name "emacs: %b (%f)" "emacs: %b"))
 
 ;; =================================================================
+;; Font selection (to use a mono-spaced (non-proportional) font)
+;; =================================================================
+;; Snow Leopard users may try Menlo-12, other should consider Monaco-12.
+(add-to-list 'default-frame-alist '(font . "Monaco-12")) 
+
+;; =================================================================
 ;; Emacs Color Theme
 ;; see http://www.emacswiki.org/emacs/ColorTheme
 ;; see http://code.google.com/p/gnuemacscolorthemetest/ for direct
@@ -93,26 +99,24 @@
 ;; =================================================================
 ;; WITH color theme
 (require 'color-theme)
-;;(CarbonEmacs 
-	(color-theme-initialize)
-;;)
-;;(Aquamacs 
-;;	(color-theme-initialize))
+(color-theme-initialize)
 (setq color-theme-is-global t)
 
 
-;(color-theme-aalto-light)
+                                        ;(color-theme-aalto-light)
 (color-theme-vim-colors)
-;(require 'color-theme-tango)
-;(color-theme-tango)
+                                        ;(require 'color-theme-tango)
+                                        ;(color-theme-tango)
 
 ;; WITHOUT color theme
-;(set-background-color "lightyellow")
+                                        ;(set-background-color "lightyellow")
 
 
 (setq default-frame-alist
       '((cursor-color . "green")
         (cursor-type . box)))
+(set-default 'cursor-type 'box)
+
 
 ;; =================================================================
 ;; Font Lock configuration
@@ -128,7 +132,7 @@
 (setq font-lock-support-mode 'fast-lock-mode)
 ;; Under Mac, package lazy-lock id obsolete
 ;;(setq font-lock-support-mode 'lazy-lock-mode)
- 
+
 (setq font-lock-support-mode 'jit-lock-mode)
 
 ;; =================================================================
@@ -136,22 +140,22 @@
 ;; =================================================================
 ;; copy from my previous config, probably OBSOLETE now that color
 ;; themes exists
-;(set-face-foreground 'font-lock-comment-face "red")
-;(copy-face 'bold 'font-lock-function-name-face)
-;(set-face-foreground 'font-lock-function-name-face "blue")
-;(copy-face 'italic 'font-lock-type-face)
-;(set-face-foreground 'font-lock-type-face "brown")
-;(copy-face 'bold 'font-lock-keyword-face)
-;(set-face-foreground 'font-lock-keyword-face "purple")
-;(set-face-foreground 'default "black")
-;(set-face-background 'modeline "blue")
-;(set-face-foreground 'modeline "white")
-;(set-face-background 'region "lightblue")
+                                        ;(set-face-foreground 'font-lock-comment-face "red")
+                                        ;(copy-face 'bold 'font-lock-function-name-face)
+                                        ;(set-face-foreground 'font-lock-function-name-face "blue")
+                                        ;(copy-face 'italic 'font-lock-type-face)
+                                        ;(set-face-foreground 'font-lock-type-face "brown")
+                                        ;(copy-face 'bold 'font-lock-keyword-face)
+                                        ;(set-face-foreground 'font-lock-keyword-face "purple")
+                                        ;(set-face-foreground 'default "black")
+                                        ;(set-face-background 'modeline "blue")
+                                        ;(set-face-foreground 'modeline "white")
+                                        ;(set-face-background 'region "lightblue")
 
 ;; === translate ANSI escape sequences into faces ===
 (GNUEmacs
-    (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
-    (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on))
+ (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+ (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on))
 
 ;; === Auto fit the size of the frame to the buffer content ===
 ;; see http://www.emacswiki.org/emacs/Shrink-Wrapping_Frames
@@ -159,7 +163,17 @@
 (require 'fit-frame)
 (add-hook 'after-make-frame-functions 'fit-frame)
 
-
+;; =================================================================
+;; Aquamacs specific 
+;; =================================================================
+;; see http://www.emacswiki.org/emacs/AquamacsEmacsCompatibilitySettings
+(Aquamacs
+ (aquamacs-autoface-mode -1)  ; no mode-specific faces, everything in Monaco
+ ;; do not load persistent scratch buffer
+ (setq aquamacs-scratch-file nil)
+ ;; do not make initial frame visible
+ (setq show-scratch-buffer-on-startup nil)
+)
 
 
 (provide 'init-display)
@@ -170,4 +184,4 @@
 ;; mode: lisp
 ;; End: 
 
- 
+
