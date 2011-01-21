@@ -3,7 +3,7 @@
 ;;       Part of my emacs configuration (see ~/.emacs or init.el)
 ;;
 ;; Creation:  08 Jan 2010
-;; Time-stamp: <Fri 2010-01-29 16:10 svarrette>
+;; Time-stamp: <Thu 2011-01-20 16:44 svarrette>
 ;;
 ;; Copyright (c) 2010 Sebastien Varrette <Sebastien.Varrette@uni.lu>
 ;;               http://varrette.gforge.uni.lu
@@ -27,6 +27,17 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;; ----------------------------------------------------------------------
 
+;; === Specific Aquamacs configuration ===
+(Aquamacs
+ (osx-key-mode -1)
+ (setq
+  ns-command-modifier 'meta         ; Apple/Command key is Meta
+  ns-alternate-modifier nil         ; Option is the Mac Option key
+  ;;ns-use-mac-modifier-symbols  nil  ; display standard Emacs (and not standard Mac) modifier symbols)
+  )
+ 
+ )
+
 ;; === Buffer switching ===
 ;; C-x b permits to switch among the buffer by entering a buffer name,
 ;; with completion.
@@ -37,9 +48,9 @@
 (setq iswitchb-buffer-ignore '("^ " "*Buffer"))
 
 ;; Move from one buffer to another using 'C-<' and 'C->'
-;(load "cyclebuffer" nil 't)
-;(global-set-key (kbd "C-<") 'cyclebuffer-forward)
-;(global-set-key (kbd "C->") 'cyclebuffer-backward)
+                                        ;(load "cyclebuffer" nil 't)
+                                        ;(global-set-key (kbd "C-<") 'cyclebuffer-forward)
+                                        ;(global-set-key (kbd "C->") 'cyclebuffer-backward)
 (global-set-key (kbd "C-<") 'previous-buffer)
 (global-set-key (kbd "C->") 'next-buffer)
 
@@ -87,9 +98,12 @@
 (global-set-key [(f2)]   'ecb-toggle) ; Activate ECB (see ~/.emacs.d/init-cedet)
 
 ;; Speedbar
-;(global-set-key [(f4)] 'speedbar-get-focus)      ; jump to speedbar frame
-(require 'sr-speedbar)
-(global-set-key [(f4)] 'sr-speedbar-toggle)       ; jump to speedbar frame
+
+                                        ;(global-set-key [(f4)] 'speedbar-get-focus)      ; jump to speedbar frame
+;;(require 'sr-speedbar)
+;;(speedbar 1)
+
+;; (global-set-key [(f4)] 'sr-speedbar-toggle)       ; jump to speedbar frame
 
 ;; find matching parenthesis (% command in vim: Go to the matching parenthesis,
 ;; if on parenthesis; otherwise, insert '%')
@@ -102,7 +116,7 @@
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
 ;; === Compilation ===
-(global-set-key (kbd "C-x C-e") 'compile)
+(global-set-key (kbd "C-x C-e") 'smart-compile)
 
 ;; === Kill this buffer ===
 (global-set-key (kbd "C-q") 'kill-this-buffer)
@@ -112,6 +126,9 @@
 
 ;; === Re-indent the full file (quite useful) ===
 (global-set-key (kbd "C-c i") 'indent-buffer)  ; see ~/.emacs.d/init-defuns
+;; === yank and indent copied region ===
+(global-set-key (kbd "M-v")  'yank-and-indent)
+
 
 ;; === Search [and replace] ===
                                         ; Use regex searches by default.
