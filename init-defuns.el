@@ -77,9 +77,10 @@
 (defun indent-buffer ()
   "indent whole buffer"
   (interactive)
-  (delete-trailing-whitespace)
-  (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max)))
+  (save-excursion
+    (delete-trailing-whitespace)
+    (indent-region (point-min) (point-max) nil)
+    (untabify (point-min) (point-max))))
 
 ;; === Yank (copy) and indent the copied region
 ;; see http://www.emacswiki.org/emacs/AutoIndentation
@@ -88,6 +89,19 @@
   (interactive)
   (yank)
   (call-interactively 'indent-region))
+
+;; === unindent ===
+(defun unindent-region ()
+  (interactive)
+  (save-excursion
+	(if (< (point) (mark)) (exchange-point-and-mark))
+	(let ((save-mark (mark)))
+	  (if (= (point) (line-beginning-position)) (previous-line 1))
+	  (goto-char (line-beginning-position))
+	  (while (>= (point) save-mark)
+		(goto-char (line-beginning-position))
+		(if (= (string-to-char "\t") (char-after (point))) (delete-char 1))
+		(previous-line 1)))))
 
 ;; === Load path related ===
 (defun load-local-site-start (site-lisp-directory) 
@@ -248,34 +262,36 @@ insert `%'."
 
 ;; remove the compilation buffer if there was no error
 ;; see http://www.emacswiki.org/emacs/ModeCompile
-;; Winner mode version of this function - excellent but not compatible with ECB
-(defun compile-autoclose (buffer string)
-  "Switch back to whatever buffer was in your other window 
-   if compilation is successful."
-  (cond ((string-match "finished" string)
-         (bury-buffer "*compilation*")
-         (replace-buffer-in-windows "*compilation*")
-         (message "Build successful."))
-        (t                                                                    
-         (message "Compilation exited abnormally: %s" string))))
-;; (defun compile-autoclose (buffer string)
-;;   "Switch back to whatever buffer was in your other window 
-;;    if compilation is successful."
-;;   (cond ((string-match "finished" string)
-;;          (bury-buffer "*compilation*")
-;;          (winner-undo)
-;;          (message "Build successful."))
-;;         (t                                                                    
-;;          (message "Compilation exited abnormally: %s" string))))
-;; (defun compile-autoclose (buffer string)
-;;   (cond ((string-match "finished" string) 
-;;          (message "Build maybe successful: closing window.")
-;;          (run-with-timer 10 nil                      
-;;                          'delete-window              
-;;                          (get-buffer-window buffer t)))
-;;         (t                                                                    
-;;          (message "Compilation exited abnormally: %s" string))))
+(setq compilation-exit-message-function
+        (lambda (status code msg)
+          ;; If M-x compile exists with a 0
+          (when (and (eq status 'exit) (zerop code))
+            ;; then bury the *compilation* buffer, so that C-x b doesn't go there
+  	  (bury-buffer "*compilation*")
+  	  ;; and return to whatever were looking at before
+  	  (replace-buffer-in-windows "*compilation*"))
+          ;; Always return the anticipated result of compilation-exit-message-function
+  	(cons msg code)))
 
+;; Winner mode version of this function - excellent but not compatible with ECB
+;; (setq compilation-finish-functions 'compile-autoclose)
+;;   (defun compile-autoclose (buffer string)
+;;      (cond ((string-match "finished" string)
+;; 	  (bury-buffer "*compilation*")
+;;           (winner-undo)
+;;           (message "Build successful."))
+;;          (t                                                                    
+;;           (message "Compilation exited abnormally: %s" string))))
+;; Alternative version 
+;; (setq compilation-finish-functions 'compile-autoclose)
+;; (defun compile-autoclose (buffer string)
+;;   (cond ((string-match "finished" string)
+;; 		 (message "Build maybe successful: closing window.")
+;; 		 (run-with-timer 1 nil                      
+;; 						 'delete-window              
+;; 						 (get-buffer-window buffer t)))
+;; 		(t                                                                    
+;; 		 (message "Compilation exited abnormally: %s" string))))
 
 
 ;; useful for ruby-mode 
