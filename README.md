@@ -31,7 +31,7 @@ following address:
 
 You'll need to install `emacs` and a few packages. 
 
-* Debian/Ubuntu: `apt-get install emacs auctex emacs-goodies-el`
+* Debian/Ubuntu: `apt-get install emacs23 latex-beamer ecb auctex emacs-goodies-el ecb`
 * Mac OS X: There are many ways to install Emacs on Mac OS X (see [here](http://www.emacswiki.org/emacs/EmacsForMacOS) for more details). 
 Until recently, I relied on [CarbonEmacs](http://homepage.mac.com/zenitani/emacs-e.html) together with the [Enhanced Carbon EMacs (ECE)](http://www.inf.unibz.it/~franconi/mac-emacs/) plugin yet I recently switched to [Aquamacs](http://aquamacs.org/) for which the current configuration should work (at least with Aquamacs version 2.1). 
 
