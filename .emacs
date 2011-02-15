@@ -298,6 +298,14 @@
 (require 'mic-paren)                    ; loading
 (paren-activate)                        ; activating
 
+;; === Show whitespaces/tabs etc. ===
+(setq x-stretch-cursor t)
+(require 'show-wspace)
+;;(add-hook 'font-lock-mode-hook 'show-ws-highlight-tabs)
+
+
+
+
 ;; ==============================================================
 ;; Autopair: Automagically pair braces and quotes like TextMate
 ;; see http://code.google.com/p/autopair/ or 
@@ -308,7 +316,15 @@
 (setq autopair-autowrap t) 
 
 ;; === Indenting configuration ===
-(setq-default indent-tabs-mode nil)     ; indentation can't insert tabs
+;; see http://www.emacswiki.org/emacs/IndentationBasics
+(setq-default tab-width 4)
+(defvaralias 'c-basic-offset 	 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
+
+;;(setq-default indent-tabs-mode nil)     ; indentation can't insert tabs
+(setq-default indent-tabs-mode t)
+(require 'smarttabs)
 
 ;; Automatic indentation of pasted text like in TextMate
 ;; See M-v command in init-bindings.el for yand-and-indent
