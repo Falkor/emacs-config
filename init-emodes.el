@@ -6,12 +6,12 @@
 ;;               http://varrette.gforge.uni.lu
 ;;
 ;; -------------------------------------------------------------------------
-;;   _       _ _                                 _                      _ 
+;;   _       _ _                                 _                      _
 ;;  (_)_ __ (_) |_       ___ _ __ ___   ___   __| | ___  ___        ___| |
 ;;  | | '_ \| | __|____ / _ \ '_ ` _ \ / _ \ / _` |/ _ \/ __|      / _ \ |
 ;;  | | | | | | ||_____|  __/ | | | | | (_) | (_| |  __/\__ \  _  |  __/ |
 ;;  |_|_| |_|_|\__|     \___|_| |_| |_|\___/ \__,_|\___||___/ (_)  \___|_|
-;;                                                                      
+;;
 ;; -------------------------------------------------------------------------
 ;; More information about Emacs Lisp:
 ;;              http://www.emacswiki.org/emacs/EmacsLisp
@@ -84,8 +84,8 @@
 
 ;; Add flyspell to the following major modes
 (dolist (hook '(text-mode-hook html-mode-hook messsage-mode-hook))
-  (add-hook hook (lambda () 
-                   (turn-on-auto-fill) 
+  (add-hook hook (lambda ()
+                   (turn-on-auto-fill)
                    (flyspell-mode t))))
 
 ;; disable flyspell in change log and log-edit mode that derives from text-mode
@@ -95,7 +95,7 @@
 ;; flyspell comments and strings in programming modes
 ;; (preventing it from finding mistakes in the code)
 (dolist (hook '(autoconf-mode-hook autotest-mode-hook c++-mode-hook c-mode-hook cperl-mode-hook  emacs-lisp-mode-hook makefile-mode-hook nxml-mode-hook python-mode-hook
- sh-mode-hook))
+                                   sh-mode-hook))
   (add-hook hook 'flyspell-prog-mode))
 
 ;; (add-hook 'autoconf-mode-hook   'flyspell-prog-mode)
@@ -153,14 +153,15 @@
 ;; Load AucTeX : see http://www.gnu.org/software/auctex/
 ;; Debian/ubuntu: apt-get install auctex
 ;; Mac OS X: preinstalled on Carbon Emacs
-(require 'tex-site)
+(load "auctex.el" nil t t)
+;;(require 'tex-site)
 
 ;; AUC TeX will will assume the file is a master file itself
 ;;(setq-default TeX-master t)
 
-;; (setq TeX-auto-save t)
+(setq TeX-auto-save t)
 
-;;(setq TeX-parse-self t) ; enable parse on load (if no style hook is found for the file)
+(setq TeX-parse-self t) ; enable parse on load (if no style hook is found for the file)
 
 (setq TeX-directory ".")
 (setq TeX-mode-hook '((lambda () (setq abbrev-mode t))))
@@ -168,6 +169,7 @@
 (setq-default TeX-PDF-mode t)         ; use PDF mode by default (instead of DVI)
 
 ;;(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
@@ -181,7 +183,7 @@
 
 ;; number of spaces to add to the indentation for each `{' not matched
 ;; by a `}'
-(setq TeX-brace-indent-level 0)         ; 4
+(setq TeX-brace-indent-level 2)         ; 4
 
 ;; auto-indentation (suggested by the AUCTeX manual -- instead of adding
 ;; a local key binding to `RET' in the `LaTeX-mode-hook')
@@ -275,11 +277,19 @@
          ("\\.\\(diffs?\\|patch\\|rej\\)\\'"    . diff-mode)
          ("\\.\\(pl\\|pm\\|cgi\\)$"             . cperl-mode)
          ("\\.gnuplot$"     . gnuplot-mode)
+         ("\\.plot$"     . gnuplot-mode)
          ("\\.php$"         . php-mode)
-         ("\\.css\\'"       . css-mode)
+         ("\\.css$"         . css-mode)
+         ("\\.md$"          . markdown-mode)
+         ("\\.rake$"        . ruby-mode)
+         ("\\.gemspec$"     . ruby-mode)
+         ("\\.rb$"          . ruby-mode)
+         ("Rakefile$"       . ruby-mode)
+         ("Gemfile$"        . ruby-mode)
+         ("Capfile$"        . ruby-mode)
          (".ssh/config\\'"  . ssh-config-mode)
          ("sshd?_config\\'" . ssh-config-mode)
-         ("^TO_DO"   . change-log-mode))
+         ("^TODO"           . change-log-mode))
        auto-mode-alist))
 
 ;; list of interpreters specified in the first line (starts with `#!')
@@ -339,7 +349,7 @@
 (add-hook 'latex-mode-hook      'my-yas-trigger-key-hook)
 (add-hook 'sql-mode-hook        'my-yas-trigger-key-hook)
 (add-hook 'css-mode-hook        'my-yas-trigger-key-hook)
-
+(add-hook 'nxml-mode-hook       'my-yas-trigger-key-hook)
 
 
 ;;(yas/load-directory "~/.emacs.d/plugins/yasnippet-x.y.z/snippets")
@@ -351,6 +361,15 @@
 ;; see http://www.emacswiki.org/emacs/TabCompletion
 (require 'smart-tab)
 (global-smart-tab-mode t)
+
+;; Disable indent "smart" alignement to insert real tabs
+(defun indent-with-real-tab-hook ()
+  (setq indent-line-function 'insert-tab)
+  )
+;;(add-hook 'text-mode-hook   'indent-with-real-tab-hook)
+(add-hook 'conf-mode-hook   'indent-with-real-tab-hook)
+
+
 
 ;; =======================================
 ;; === Auto Encryption (with GPG etc.) ===
@@ -389,7 +408,7 @@
 
 ;; rdoc mode
 (require 'rdoc-mode)
-;(add-hook 'ruby-mode-hook 'rdoc-mode)
+                                        ;(add-hook 'ruby-mode-hook 'rdoc-mode)
 
 ;; Puppet config
 (require 'puppet-mode)
