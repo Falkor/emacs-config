@@ -322,8 +322,8 @@
 (defvaralias 'cperl-indent-level 'tab-width)
 
 
-;;(setq-default indent-tabs-mode nil)     ; indentation can't insert tabs
-(setq-default indent-tabs-mode t)
+(setq-default indent-tabs-mode nil)     ; indentation can't insert tabs
+;;(setq-default indent-tabs-mode t)
 (require 'smarttabs)
 
 ;; Automatic indentation of pasted text like in TextMate
@@ -378,7 +378,7 @@
         ("\\.cc$"          . "C++")              ;
         ("\\.C$"           . "C++")              ;
         ("[Mm]akefile$"    . "Makefile")         ; Makefile
-        ("[Mm]akefile.am$" . "Makefile.am")   ; Makefile.am (Automake)
+        ("[Mm]akefile.am$" . "Makefile.am")      ; Makefile.am (Automake)
         ("\\.txt$"         . "Text")             ; Text
         ("\\.gpg$"         . "GPG")              ; GPG 
         ("[Rr]eadme$"      . "Readme")           ; Readme
@@ -393,6 +393,7 @@
         ("\\.pl$"          . "Perl")             ; Perl
         ("\\.pm$"          . "Perl Module")      ; PerlModule
         ("\\.t$"           . "Perl Test")        ; Perl Test script
+        ("\\.pp$"          . "Puppet")           ; Puppet manifest
         ("\\.rb$"          . "Ruby")             ; Ruby
         (""                . "Shell") ; Shell (by default: assume a shell template)
         ))
@@ -424,6 +425,7 @@
         ("Perl"        . "insert.pl")
         ("Perl Module" . "insert.pm")
         ("Perl Test"   . "insert.t")
+        ("Puppet"      . "insert.pp")
         ("Ruby"        . "insert.rb")
         ))
 
