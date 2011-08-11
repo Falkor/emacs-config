@@ -1,4 +1,4 @@
-# File::      %f 
+# File::      <tt>%f</tt> 
 # Author::    %U (%a)
 # Copyright:: Copyright (c) %y %U (www[%o])
 # License::   GPLv3
@@ -43,7 +43,8 @@ class %b {
     }
 }
 
-# Class: %b::common
+# ------------------------------------------------------------------------------
+# = Class: %b::common
 #
 # Base class to be inherited by the other %b classes
 #
@@ -52,15 +53,17 @@ class %b::common {
 
 }
 
-# Class: %b::debian
+# ------------------------------------------------------------------------------
+# = Class: %b::debian
 #
 # Specialization class for Debian systems
-class %b::debian { }
+class %b::debian inherits %b::comon { }
 
-# Class: %b::redhat
+# ------------------------------------------------------------------------------
+# = Class: %b::redhat
 #
 # Specialization class for Redhat systems
-class %b::redhat { }
+class %b::redhat inherits %b::comon { }
 
 
 
