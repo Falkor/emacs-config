@@ -159,7 +159,7 @@
 ;; AUC TeX will will assume the file is a master file itself
 ;;(setq-default TeX-master t)
 
-(setq TeX-auto-save t)
+;;(setq TeX-auto-save t)
 
 (setq TeX-parse-self t) ; enable parse on load (if no style hook is found for the file)
 
@@ -307,6 +307,12 @@
 (require 'doxymacs)
 (add-hook 'c-mode-hook   'doxymacs-mode)
 (add-hook 'c++-mode-hook 'doxymacs-mode)
+
+;; === YAML ===
+;; see http://www.emacswiki.org/emacs/YamlMode
+;; and https://github.com/yoshiki/yaml-mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; === Source file navigation ===
 ;; load the corresponding file C/C++ header or source file for the current
