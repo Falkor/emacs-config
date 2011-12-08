@@ -274,14 +274,14 @@ insert `%'."
 ;;  	(cons msg code)))
 
 ;; Winner mode version of this function - excellent but not compatible with ECB
-(setq compilation-finish-functions 'compile-autoclose)
-   (defun compile-autoclose (buffer string)
-      (cond ((string-match "finished" string)
- 	  (bury-buffer "*compilation*")
-           (winner-undo)
-           (message "Build successful."))
-          (t                                                                    
-           (message "Compilation exited abnormally: %s" string))))
+;;(setq compilation-finish-functions 'compile-autoclose)
+;;   (defun compile-autoclose (buffer string)
+;;      (cond ((string-match "finished" string)
+;; 	  (bury-buffer "*compilation*")
+;;           (winner-undo)
+;;           (message "Build successful."))
+;;          (t                                                                    
+;;           (message "Compilation exited abnormally: %s" string))))
 ;; Alternative version 
 ;; (setq compilation-finish-functions 'compile-autoclose)
 ;; (defun compile-autoclose (buffer string)
