@@ -3,7 +3,6 @@
 # Copyright:: Copyright (c) %y %U (www[%o])
 # License::   GPLv3
 # 
-# Time-stamp: < >
 # ------------------------------------------------------------------------------
 # = Class: %b
 #
@@ -11,7 +10,7 @@
 #
 # == Parameters:
 #
-# $param1 (Default: val):: description
+# $ensure:: *Default*: 'present'. Ensure the presence (or absence) of %b
 #
 # == Actions: 
 #
@@ -25,6 +24,13 @@
 #
 #     import %b
 #
+# You can then specialize the various aspects of the configuration,
+# for instance:
+#
+#      class { '%b':
+#          ensure => 'present'
+#      }
+#
 # == Warnings
 #
 # /!\ Always respect the style guide available
@@ -32,9 +38,15 @@
 #
 # [Remember: No empty lines between comments and class definition]
 #
-class %b {
+class %b ( $ensure = $%b::params::ensure ) inherits %b::params {
 
-    case $operatingsystem {
+    info ("Configuring %b (with ensure = ${ensure})")
+
+    if ! ($ensure in [ 'present', 'absent' ]) {
+        fail("%b 'ensure' parameter must be set to either 'absent' or 'present'")
+    }
+
+    case $::operatingsystem {
         debian, ubuntu:         { include %b::debian }
         redhat, fedora, centos: { include %b::redhat }
         default: {
@@ -48,8 +60,13 @@ class %b {
 #
 # Base class to be inherited by the other %b classes
 #
-# Note: respect the Naming standard provided here[http://projects.puppetlabs.com/projects/puppet/wiki/Module_Standards]
+# Note: respect the Naming standard provided 
+# here[http://projects.puppetlabs.com/projects/puppet/wiki/Module_Standards]
 class %b::common {
+
+    # Load the variables used in this module. Check the infiniband-params.pp file
+    require %b::params
+
 
 }
 
@@ -57,13 +74,13 @@ class %b::common {
 # = Class: %b::debian
 #
 # Specialization class for Debian systems
-class %b::debian inherits %b::comon { }
+class %b::debian inherits %b::common { }
 
 # ------------------------------------------------------------------------------
 # = Class: %b::redhat
 #
 # Specialization class for Redhat systems
-class %b::redhat inherits %b::comon { }
+class %b::redhat inherits %b::common { }
 
 
 
