@@ -442,7 +442,7 @@
 ;; see http://www.emacswiki.org/emacs/ModeCompile
 ;; Close the compilation window if there was no error at all.
 ;; version that use the winner mode (see ~/.emacs.d/init-defuns.el)
-(setq compilation-finish-functions 'compile-autoclose)
+;;(setq compilation-finish-functions 'compile-autoclose)
 
 
 
