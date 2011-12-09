@@ -223,19 +223,26 @@
 ;; doc: see http://www.gnu.org/software/emacs/manual/dired-x.html
 ;; see also ~/.emacs.d/dired-refcard.gnu.pdf
 (add-hook 'dired-load-hook
-          (function (lambda  ()
-                      (load "dired-x")
-                      (setq  dired-listing-switches       "-alF"
-                             dired-ls-F-marks-symlinks    t
-                             dired-guess-shell-gnutar     "gnutar"
-                             dired-guess-shell-alist-user '(("\\.tgz$" "gnutar zxvf"))
-                             )
-                      )))
+         (function (lambda  ()
+                     (load "dired-x")
+                     (setq  dired-listing-switches       "-alF"
+                            dired-ls-F-marks-symlinks    t
+                            dired-guess-shell-gnutar     "gnutar"
+                            dired-guess-shell-alist-user '(("\\.tgz$" "gnutar zxvf"))
+                            )
+                     )))
 
 ;; Mac Open/Execute from dired
 (define-key dired-mode-map "p" 'dired-open-with-open) ; see ~/.emacs.d/init-defuns.el
 (setq dired-enable-local-variables nil)
 (setq dired-local-variables-file   nil)
+
+;; === Directory Tree views for Emacs ===
+;; see https://github.com/zkim/emacs-dirtree
+;; Similar to NERDtree for vim or the directory drawer of TextMate
+;; I tried this version following the discussion on 
+;;        http://stackoverflow.com/questions/3538064/nerdtree-for-emacs
+(require 'dirtree)
 
 ;; === SVN support ===
 (require 'vc-svn)
