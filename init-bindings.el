@@ -97,6 +97,9 @@
 ;; ECB
 (global-set-key [(f2)]   'ecb-toggle) ; Activate ECB (see ~/.emacs.d/init-cedet)
 
+;; Shell pop
+(global-set-key [(f3)] 	 'shell-pop)
+
 ;; Speedbar
 
                                         ;(global-set-key [(f4)] 'speedbar-get-focus)      ; jump to speedbar frame

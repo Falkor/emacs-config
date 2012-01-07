@@ -33,6 +33,15 @@
 ;; -------------------------------------------------------------------------
 
 ;; ===================================================
+;; === Shell pop ===
+;; see http://www.emacswiki.org/emacs/ShellPop
+(require 'shell-pop)
+(shell-pop-set-internal-mode "ansi-term")
+(shell-pop-set-internal-mode-shell "/bin/bash")
+(shell-pop-set-window-height 60)         ;the number for the percentage of the selected window. if 100, shell-pop use the whole of selected window, not spliting.
+(shell-pop-set-window-position "bottom") ;shell-pop-up position. You can choose "top" or "bottom". 
+
+;; ===================================================
 ;; === Aspell/Ispell spell checking ===
 ;; see http://www.emacswiki.org/emacs/InteractiveSpell
 
