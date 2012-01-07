@@ -246,13 +246,6 @@
 (setq dired-enable-local-variables nil)
 (setq dired-local-variables-file   nil)
 
-;; === Directory Tree views for Emacs ===
-;; see https://github.com/zkim/emacs-dirtree
-;; Similar to NERDtree for vim or the directory drawer of TextMate
-;; I tried this version following the discussion on 
-;;        http://stackoverflow.com/questions/3538064/nerdtree-for-emacs
-(require 'dirtree)
-
 ;; === SVN support ===
 (require 'vc-svn)
 (add-to-list 'vc-handled-backends 'SVN)
