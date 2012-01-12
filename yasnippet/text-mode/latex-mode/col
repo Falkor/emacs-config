@@ -1,0 +1,10 @@
+#contributor : Sebastien Varrette <sebastien.varrette@uni.lu> 
+#name : \begin{columns}  ... \end{columns} 
+# --
+%~~~~~~~~~~~~~~
+\begin{columns}
+    \column{${1:size}}
+	$0
+    \column{$1}
+
+\end{columns}

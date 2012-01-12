@@ -1,0 +1,8 @@
+#contributor : Sebastien Varrette <sebastien.varrette@uni.lu> 
+#name : \frame{ ... } 
+# --
+%.......
+\frame{
+   \frametitle{${1:Frame Title}}
+   $0
+}
