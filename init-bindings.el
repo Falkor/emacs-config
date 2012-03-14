@@ -120,6 +120,7 @@
 
 ;; === Compilation ===
 (global-set-key (kbd "C-x C-e") 'smart-compile)
+(define-key ruby-mode-map [remap ruby-send-last-sexp ] nil)
 
 ;; === Kill this buffer ===
 (global-set-key (kbd "C-q") 'kill-this-buffer)
