@@ -3,8 +3,8 @@
 # --
 %~~~~~~~~~~~~~~
 \begin{columns}
-    \column{${1:size}}
+    \column{0.${1:ratio}\textwidth}
 	$0
-    \column{$1}
+    \column{0.$1\textwidth}
 
 \end{columns}

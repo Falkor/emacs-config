@@ -351,8 +351,9 @@
 
 ;; key bindings
 (defun my-yas-trigger-key-hook ()
-  (local-set-key (read-kbd-macro "M-<return>") 'yas/expand)
+  (global-set-key (read-kbd-macro "M-<return>") 'yas/expand)
   )
+
 ;; application to the supported modes
 (add-hook 'c-mode-common-hook   'my-yas-trigger-key-hook)
 (add-hook 'python-mode-hook     'my-yas-trigger-key-hook)
