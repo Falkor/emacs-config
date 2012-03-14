@@ -379,6 +379,7 @@
         ("\\.C$"           . "C++")              ;
         ("[Mm]akefile$"    . "Makefile")         ; Makefile
         ("[Mm]akefile.am$" . "Makefile.am")      ; Makefile.am (Automake)
+        ("\\.md$"          . "Text")             ; Text
         ("\\.txt$"         . "Text")             ; Text
         ("\\.gpg$"         . "GPG")              ; GPG 
         ("[Rr]eadme$"      . "Readme")           ; Readme
@@ -414,7 +415,7 @@
         ("Logs C++ Include" . "insert.logs.h")
         ("Makefile"    . "insert.makefile")
         ("Makefile.am" . "insert.makefile.am")
-        ("Text"        . "insert.txt")
+        ("Text"        . "insert.md")
         ("GPG"         . "insert.gpg")
         ("Readme"      . "insert.readme")
         ("Shell"       . "insert.shell")
