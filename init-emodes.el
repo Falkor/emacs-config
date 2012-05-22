@@ -250,6 +250,8 @@
 (require 'vc-svn)
 (add-to-list 'vc-handled-backends 'SVN)
 
+(require 'vc-svn17)
+
 ;; === GIT support ===
 ;; based on magit (installed by elpa -- see ~/.emacs.d/init-elpa)
 ;; documentation: http://zagadka.vm.bytemark.co.uk/magit/magit.html
