@@ -163,6 +163,22 @@
 (require 'fit-frame)
 (add-hook 'after-make-frame-functions 'fit-frame)
 
+
+;; =================================================================
+;; ediff specific 
+;; =================================================================
+;; see http://emacswiki.org/emacs/EdiffMode
+
+;; To make ediff operate on selected-frame 
+;; This is what you probably want if you are using a tiling windowa
+;; manager under X, such as ratpoison.
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+;; To make ediff to be horizontally split use:
+(setq ediff-split-window-function 'split-window-horizontally)
+
+
+
 ;; =================================================================
 ;; Aquamacs specific 
 ;; =================================================================
