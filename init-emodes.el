@@ -455,6 +455,12 @@
 (add-to-list 'auto-mode-alist '("\\.template$" . (lambda () (html-mode)     (webgen-mode))))
 (add-to-list 'auto-mode-alist '("[Mm]etainfo$" . (lambda () (text-mode)     (webgen-mode))))
 
+;; RVM (Ruby Version Manager) support 
+;; see https://github.com/senny/rvm.el
+(require 'rvm)
+(rvm-use-default) ;; use rvm's default ruby for the current Emacs session
+
+
 
 
 
