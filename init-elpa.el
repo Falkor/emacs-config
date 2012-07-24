@@ -44,6 +44,7 @@
                                    'inf-ruby
                                    'magit
                                    'nav
+				   'w3
                                    'nxml-mode)
   "Libraries that should be installed by default.")
 
