@@ -158,6 +158,11 @@
   (winner-mode t))
 
 ;; ===================================================
+;; === Web browsing ===
+;; Emacs Web browser -- see http://www.emacswiki.org/emacs/ewb.el
+(autoload 'ewb "ewb" "emacs web browser" t)
+
+;; ===================================================
 ;; === LaTeX ===
 ;; Load AucTeX : see http://www.gnu.org/software/auctex/
 ;; Debian/ubuntu: apt-get install auctex
