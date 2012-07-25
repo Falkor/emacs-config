@@ -20,6 +20,7 @@
  '(ecb-source-path (quote (("~/" "Home") (#("/Users/svarrette/svn/gforge.uni.lu/inids/trunk" 0 46 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "LibINIDS") (#("/Users/svarrette/svn/gforge.uni.lu/libgep" 0 41 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "LibGEP") ("/Users/svarrette/git/github.com/Falkor" "Github/Falkor") ("/Users/svarrette/git/github.com/Falkor/emacs-config" "Github/Falkor/emacs-config") ("/Users/svarrette/git/github.com/Falkor/yabackup" "Github/Falkor/yabackup") ("/Users/svarrette/git/github.com/Falkor/dotfiles" "Github/Falkor/dotfiles") ("/Users/svarrette/git/grid5000.fr/puppet-repo" "G5K/Puppet") (#("/Users/svarrette/devel/www/WebGen" 0 33 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "WebGen") ("/Users/svarrette/WORK/SysAdmin/HPC/Clusters/Lux5000" "Lux5000") ("/Users/svarrette/git/git-admin.uni.lu/puppet-repo" "CSC Puppet repository ") (#("/Users/svarrette/svn/gforge.uni.lu/ulclusters" 0 45 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "SVN FAI") ("/Users/svarrette/git/git-admin.uni.lu/sysadmins-repo" "CSC sysadmins repository"))))
  '(ecb-windows-width 35)
  '(imenu-auto-rescan t)
+ '(markdown-css-path "file:///Users/svarrette/.emacs.d/css/style.css")
  '(ns-alternate-modifier nil)
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode (quote regular) t)
