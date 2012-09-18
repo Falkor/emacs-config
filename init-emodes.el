@@ -465,7 +465,15 @@
 (require 'rvm)
 (rvm-use-default) ;; use rvm's default ruby for the current Emacs session
 
+;; Gnuplot 
+;; see http://astro.berkeley.edu/~mkmcc/software/gnuplot-mode.html
+(require 'gnuplot)
+;; specify the gnuplot executable (if other than /usr/bin/gnuplot)
+(setq gnuplot-program "/usr/local/bin/gnuplot")
 
+;; automatically open files ending with .gp or .gnuplot in gnuplot mode
+(setq auto-mode-alist 
+(append '(("\\.\\(gp\\|gnuplot\\)$" . gnuplot-mode)) auto-mode-alist))
 
 
 
