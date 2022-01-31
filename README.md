@@ -1,11 +1,19 @@
--*- mode: markdown; mode: auto-fill; fill-column: 80 -*-
+---------------
+
+**`/!\ IMPORTANT`: This repository holds OBSOLETE configuration which are kept for archiving purposes!**
+
+**If you are interested in my [LATEST](https://github.com/Falkor/spacemacs-config) up-to-date Emacs configuration, kindly refer to the following repository:**
+
+<p align="center">
+<b><a href="https://github.com/Falkor/spacemacs-config"><code>Falkor/spacemacs-config</code></a></b>
+</p>
 
 ---------------
 
- Time-stamp: <Fri 2011-01-21 10:12 svarrette>
+      Time-stamp: <Fri 2011-01-21 10:12 svarrette>
 
- Copyright (c) 2010-2011 Sebastien Varrette <Sebastien.Varrette@uni.lu>
-               http://varrette.gforge.uni.lu
+      Copyright (c) 2010-2011 Sebastien Varrette <Sebastien.Varrette@uni.lu>
+                 http://varrette.gforge.uni.lu
 
 ---------------
 
